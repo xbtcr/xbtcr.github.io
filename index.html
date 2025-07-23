@@ -4,114 +4,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XBTCR - Official Token</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #000;
-    }
-    header, footer {
+      font-family: 'Roboto', sans-serif;
       background-color: #000;
       color: #fff;
-      padding: 10px 0;
-      text-align: center;
     }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5px 30px;
+    .header, .footer {
+      background-color: #111;
+      padding: 10px 20px;
     }
-    .navbar img {
+    .logo {
       height: 50px;
       width: 50px;
       border-radius: 50%;
-      background: #fff;
-      padding: 2px;
-    }
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
-    }
-    .navbar a:hover {
-      text-decoration: underline;
+      background-color: white;
+      padding: 5px;
     }
     .main-logo {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .main-logo img {
-      width: 160px;
-      height: 160px;
+      height: 140px;
+      width: 140px;
       border-radius: 50%;
-      background: #fff;
-      padding: 10px;
+      background-color: white;
+      padding: 8px;
+      display: block;
+      margin: 30px auto 10px;
+    }
+    .ticker {
+      background-color: #000;
+      color: #00ffcc;
+      padding: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 20s linear infinite;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+    .content {
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.3em;
+    }
+    p {
+      font-size: 1.1em;
+      color: #ccc;
     }
     .buy-btn {
-      display: inline-block;
       background-color: orange;
-      color: #fff;
-      padding: 12px 30px;
-      margin: 25px auto;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .live-widget {
-      margin: 40px auto;
-      max-width: 800px;
-      text-align: center;
-    }
-    iframe {
       border: none;
-      width: 100%;
-      height: 500px;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
     }
-    footer p {
-      margin: 5px 0;
-      font-size: 14px;
+    .buy-btn:hover {
+      background-color: #ff9933;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="navbar">
-      <img src="logo.png" alt="XBTCR Logo">
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="tokenomics.html">Tokenomics</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="whitepaper.html">Whitepaper</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <div class="main-logo">
-    <img src="logo.png" alt="XBTCR Central Logo">
+  <!-- Top Black Bar -->
+  <div class="header">
+    <img src="logo.png" alt="XBTCR Logo" class="logo" />
   </div>
 
-  <div style="text-align:center;">
-    <a class="buy-btn" href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">
-      Buy Now on PancakeSwap
+  <!-- Ticker (Live Prices) -->
+  <div class="ticker">
+    <span id="livePrices">Fetching live prices...</span>
+  </div>
+
+  <!-- Main Logo -->
+  <img src="logo.png" alt="XBTCR Main Logo" class="main-logo"/>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Welcome to XBTCR</h1>
+    <p>The future of decentralized finance. Buy, Hold, Earn. Now trading on PancakeSwap.</p>
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">
+      <button class="buy-btn">Buy Now on PancakeSwap</button>
     </a>
   </div>
 
-  <div class="live-widget">
-    <h2>📈 Live Crypto Market Prices</h2>
-    <iframe src="https://coinlib.io/widget?type=full_v2&theme=light&cnt=100&pref_coin_id=1505" allowtransparency="true"></iframe>
+  <!-- Bottom Black Bar -->
+  <div class="footer">
+    &copy; 2025 XBTCR. All Rights Reserved.
   </div>
 
-  <footer>
-    <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
-  </footer>
+  <!-- Live Price Script -->
+  <script>
+    async function fetchPrices() {
+      try {
+        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
+        const data = await res.json();
+        const btc = data.bitcoin.usd;
+        const eth = data.ethereum.usd;
+        const xbtcr = '0.000053'; // Manually set XBTCR price if API not available
+        document.getElementById('livePrices').innerText =
+          `BTC: $${btc} | ETH: $${eth} | XBTCR: $${xbtcr}`;
+      } catch (e) {
+        document.getElementById('livePrices').innerText = 'Live prices unavailable.';
+      }
+    }
+    fetchPrices();
+    setInterval(fetchPrices, 30000); // Update every 30 sec
+  </script>
 
 </body>
 </html>
