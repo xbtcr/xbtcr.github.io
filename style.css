@@ -1,44 +1,115 @@
+/* Base Styles */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
+  padding: 0;
   background-color: #f9f9f9;
-  color: #222;
+  color: #222222;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
+/* Header Styles */
 .header {
-  background: #000;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
   height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Styles */
+.navbar {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .navbar a {
-  color: #fff;
-  margin-left: 20px;
+  color: #ffffff;
   text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #00ffcc;
 }
 
 .navbar a.active {
   border-bottom: 2px solid #00ffcc;
 }
 
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #00ffcc;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Content Sections */
 .whitepaper {
-  padding: 2rem;
+  padding: 2rem 1rem;
   max-width: 900px;
-  margin: auto;
+  margin: 2rem auto;
 }
 
 .section {
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   margin-bottom: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+  
+  .navbar {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .whitepaper {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
 }
