@@ -3,132 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XBTCR - Official Token</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <title>XBTCR Token</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
       color: #fff;
     }
-    .header, .footer {
-      background-color: #111;
+
+    header {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 10px 20px;
     }
-    .logo {
+
+    .logo-left {
       height: 50px;
       width: 50px;
       border-radius: 50%;
-      background-color: white;
+      background-color: #fff;
       padding: 5px;
     }
-    .main-logo {
-      height: 140px;
-      width: 140px;
-      border-radius: 50%;
-      background-color: white;
-      padding: 8px;
-      display: block;
-      margin: 30px auto 10px;
+
+    .logo-center {
+      height: 80px;
     }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 5px 10px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
     .ticker {
-      background-color: #000;
-      color: #00ffcc;
-      padding: 8px;
-      white-space: nowrap;
+      background-color: #222;
+      color: #0f0;
+      padding: 10px;
+      font-family: monospace;
       overflow: hidden;
+      white-space: nowrap;
       box-sizing: border-box;
     }
-    .ticker span {
+
+    .ticker-text {
       display: inline-block;
       padding-left: 100%;
-      animation: ticker 20s linear infinite;
+      animation: scroll-left 15s linear infinite;
     }
-    @keyframes ticker {
-      0%   { transform: translateX(0%); }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0%); }
       100% { transform: translateX(-100%); }
     }
-    .content {
+
+    .main-content {
       text-align: center;
-      padding: 20px;
+      padding: 50px 20px;
     }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 0.3em;
-    }
-    p {
-      font-size: 1.1em;
-      color: #ccc;
-    }
+
     .buy-btn {
       background-color: orange;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
       color: #000;
       font-weight: bold;
+      padding: 15px 30px;
+      border: none;
       border-radius: 8px;
+      font-size: 18px;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 30px;
+      transition: 0.3s;
     }
+
     .buy-btn:hover {
-      background-color: #ff9933;
+      background-color: darkorange;
     }
-    .footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #aaa;
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .logo-center {
+        height: 60px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Black Bar -->
-  <div class="header">
-    <img src="logo.png" alt="XBTCR Logo" class="logo" />
-  </div>
+  <!-- Header -->
+  <header>
+    <!-- Left Logo -->
+    <img src="logo.png" alt="XBTCR Logo" class="logo-left">
 
-  <!-- Ticker (Live Prices) -->
+    <!-- Center Logo -->
+    <img src="logo.png" alt="XBTCR" class="logo-center">
+
+    <!-- Navigation -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tokenomics.html">Tokenomics</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="whitepaper.html">Whitepaper</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <!-- Live Ticker -->
   <div class="ticker">
-    <span id="livePrices">Fetching live prices...</span>
+    <div class="ticker-text">
+      BTC: $67,800 &nbsp;&nbsp; | &nbsp;&nbsp; ETH: $3,520 &nbsp;&nbsp; | &nbsp;&nbsp; XBTCR: $0.000000053 &nbsp;&nbsp; | &nbsp;&nbsp; Volume: $1.2K
+    </div>
   </div>
-
-  <!-- Main Logo -->
-  <img src="logo.png" alt="XBTCR Main Logo" class="main-logo"/>
 
   <!-- Main Content -->
-  <div class="content">
+  <div class="main-content">
     <h1>Welcome to XBTCR</h1>
-    <p>The future of decentralized finance. Buy, Hold, Earn. Now trading on PancakeSwap.</p>
+    <p>The future of decentralized trading. Buy, hold, and earn.</p>
+
     <a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">
       <button class="buy-btn">Buy Now on PancakeSwap</button>
     </a>
   </div>
-
-  <!-- Bottom Black Bar -->
-  <div class="footer">
-    &copy; 2025 XBTCR. All Rights Reserved.
-  </div>
-
-  <!-- Live Price Script -->
-  <script>
-    async function fetchPrices() {
-      try {
-        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
-        const data = await res.json();
-        const btc = data.bitcoin.usd;
-        const eth = data.ethereum.usd;
-        const xbtcr = '0.000053'; // Manually set XBTCR price if API not available
-        document.getElementById('livePrices').innerText =
-          `BTC: $${btc} | ETH: $${eth} | XBTCR: $${xbtcr}`;
-      } catch (e) {
-        document.getElementById('livePrices').innerText = 'Live prices unavailable.';
-      }
-    }
-    fetchPrices();
-    setInterval(fetchPrices, 30000); // Update every 30 sec
-  </script>
 
 </body>
 </html>
