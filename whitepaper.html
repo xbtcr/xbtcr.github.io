@@ -4,31 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XBTCR Whitepaper</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" href="favicon.png" type="image/png"/>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header img {
+      height: 50px;
+      vertical-align: middle;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    .section {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 2rem;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <img src="logo.png" alt="XBTCR Logo" class="logo"/>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="whitepaper.html" class="active">Whitepaper</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main class="whitepaper">
-    <!-- Page 1: Introduction -->
-    <section id="introduction" class="section">
-      <h1>XBTCR Whitepaper</h1>
-      <h2>1. Introduction</h2>
-      <p>
-        XBTCR is a decentralized token launched on Binance Smart Chain (BSC), focused on transparency,
-        simplicity, and community-driven growth. It is designed for crypto users who prefer low tax,
-        fast trading, and high burn rate tokens with long-term trust.
-      </p>
-      <p>
-        This whitepaper outlines the token’s structure, goals, and technical roadmap to help the
-        community understand our vision and trust our mission.
-      </p>
-    </section>
+<header>
+  <img src="logo.png" alt="XBTCR Logo">
+  <h1>XBTCR Whitepaper</h1>
+</header>
+
+<div class="container">
+
+  <div class="section" id="page1">
+    <h2>1. Introduction</h2>
+    <p>XBTCR is a next-generation BEP-20 token built on Binance Smart Chain (BSC), offering frictionless rewards, community trust, and a simple tax structure. With 99% of supply burned, and only 1T circulating, XBTCR is designed to reward holders and promote transparency.</p>
+  </div>
+
+  <div class="section" id="page2">
+    <h2>2. Token Details</h2>
+    <ul>
+      <li><strong>Token Name:</strong> XBTCR</li>
+      <li><strong>Symbol:</strong> XBTCR</li>
+      <li><strong>Network:</strong> Binance Smart Chain (BEP-20)</li>
+      <li><strong>Contract Address:</strong> 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</li>
+      <li><strong>Total Supply:</strong> 100 Trillion</li>
+      <li><strong>Burned:</strong> 99 Trillion</li>
+      <li><strong>Circulating Supply:</strong> 1 Trillion</li>
+      <li><strong>Burn TX:</strong> <a href="https://bscscan.com/tx/0x46c173b743001535960241d9563dfe37733d7955d1388771d5f00c02c3b3a9f3" target="_blank">View on BscScan</a></li>
+    </ul>
+  </div>
+
+  <div class="section" id="page3">
+    <h2>3. Tax Structure</h2>
+    <p>XBTCR applies a simple and transparent tax system on each transaction:</p>
+    <ul>
+      <li><strong>Marketing:</strong> 2.00%</li>
+      <li><strong>Auto Burn:</strong> 1.50%</li>
+      <li><strong>Total Tax:</strong> 3.50%</li>
+      <li><strong>Slippage (Recommended):</strong> 2%</li>
+    </ul>
+  </div>
+
+  <div class="section" id="page4">
+    <h2>4. Liquidity & Trading</h2>
+    <p>XBTCR is live on PancakeSwap V2. Liquidity is added to the XBTCR/WBNB pair:</p>
+    <ul>
+      <li><strong>Liquidity Pair:</strong> XBTCR/WBNB</li>
+      <li><strong>Pair Address:</strong> <a href="https://pancakeswap.finance/info/pool/0x364...7803" target="_blank">View Pool</a></li>
+      <li><strong>Initial Liquidity:</strong> $150</li>
+    </ul>
+  </div>
+
+  <div class="section" id="page5">
+    <h2>5. Roadmap</h2>
+    <p><strong>Phase 1:</strong> Token Launch, Website, Whitepaper, PancakeSwap Listing<br/>
+       <strong>Phase 2:</strong> Social Media, CoinGecko & CMC Listings, BscScan Update<br/>
+       <strong>Phase 3:</strong> Mobile App, Wallet, Mining Simulation, Community Growth</p>
+  </div>
+
+  <div class="section" id="page6">
+    <h2>6. Trust & Security</h2>
+    <p>We have taken clear steps to build community trust:</p>
+    <ul>
+      <li>✔ 99% Tokens Burned</li>
+      <li>✔ Ownership Renounced</li>
+      <li>✔ Verified Contract on BscScan</li>
+      <li>✔ Transparent Website & Whitepaper</li>
+    </ul>
+  </div>
+
+  <div class="section" id="page7">
+    <h2>7. Contact & Community</h2>
+    <p>Stay connected and get support:</p>
+    <ul>
+      <li><a href="https://xbtcr.github.io/contact.html">Contact Page</a></li>
+      <li><a href="https://twitter.com/xbtcrtoken" target="_blank">@xbtcrtoken</a></li>
+      <li>Telegram & other links coming soon...</li>
+    </ul>
+  </div>
+
+  <div class="section" id="page8">
+    <h2>8. Conclusion</h2>
+    <p>XBTCR stands as a symbol of transparency, simplicity, and decentralization. With a fair tokenomics model and community-focused approach, XBTCR is prepared for long-term growth and utility expansion.</p>
+    <p><strong>Download PDF:</strong> <a href="XBTCR_Whitepaper.pdf" download>Click here to download</a></p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 XBTCR Token. All rights reserved.
+</footer>
+
+</body>
+</html>
