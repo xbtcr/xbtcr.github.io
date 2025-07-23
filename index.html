@@ -8,113 +8,125 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: white;
+      background-color: #000;
+      color: #fff;
     }
-    header {
-      background: black;
-      color: white;
+    header, footer {
+      background-color: #111;
       padding: 10px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo-left {
-      height: 60px;
-      width: 60px;
-      border-radius: 50%;
-      background-color: white;
-      margin-left: 20px;
-      object-fit: contain;
-      padding: 5px;
+      text-align: center;
     }
     nav {
+      background-color: #000;
       display: flex;
-      gap: 15px;
-      margin-right: 30px;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
     }
     nav a {
       color: white;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
-    .center-logo {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0 20px;
+    nav a:hover {
+      text-decoration: underline;
     }
-    .center-logo img {
-      height: 120px;
-      width: 120px;
+    .logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 10px 20px;
+    }
+    .logo-left, .logo-center {
+      display: flex;
+      align-items: center;
+    }
+    .logo-left img, .logo-center img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
       border-radius: 50%;
-      background-color: white;
-      padding: 10px;
+      background: white;
+      padding: 4px;
+    }
+    .logo-center {
+      justify-content: center;
+      flex: 1;
+    }
+    .main-content {
+      text-align: center;
+      padding: 20px;
+    }
+    .main-content h1 {
+      font-size: 36px;
+    }
+    .main-content p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: auto;
     }
     .buy-button {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-    }
-    .buy-button a {
       background-color: orange;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
+      color: black;
       font-weight: bold;
-      font-size: 18px;
-    }
-    .chart-section {
-      display: flex;
-      justify-content: center;
-      margin: 40px auto;
-      max-width: 90%;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
     }
     iframe {
-      border: none;
-      width: 100%;
+      width: 90%;
       height: 500px;
-      background: white;
+      border: none;
+      margin: 30px auto;
+      display: block;
     }
     footer {
-      background: black;
-      color: white;
+      background-color: #111;
       text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
+      padding: 10px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="xbtcr.png" alt="XBTCR Logo" class="logo-left" />
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="tokenomics.html">Tokenomics</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="whitepaper.html">Whitepaper</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <div class="center-logo">
-    <img src="xbtcr.png" alt="XBTCR Logo Center" />
+  <div class="logo-container">
+    <div class="logo-left">
+      <img src="logo.png" alt="XBTCR Logo" />
+    </div>
+    <div class="logo-center">
+      <img src="logo.png" alt="XBTCR Center Logo" />
+    </div>
   </div>
 
-  <div class="buy-button">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="whitepaper.html">Whitepaper</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="main-content">
+    <h1>Welcome to XBTCR</h1>
+    <p>XBTCR is a decentralized token redefining crypto freedom. Burned supply, no owner, and open trading.</p>
     <a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">
-      Buy Now on PancakeSwap
+      <button class="buy-button">Buy Now on PancakeSwap</button>
     </a>
   </div>
 
-  <div class="chart-section">
-    <iframe src="https://www.dextools.io/widget-chart/en/bsc/pe-light/0x4274c09719F4eb538682F74DB27f7DB6DE330cd9?theme=light&chartType=1" allowfullscreen></iframe>
-  </div>
+  <!-- Live Chart -->
+  <iframe src="https://www.dextools.io/widget-chart/en/bsc/pe-light/0x364EAD7bBF0BCc10aFE3eFbe2cA73f3C7d087803?theme=dark&chartType=1&interval=30&autosize=true"></iframe>
 
   <footer>
-    <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
+    &copy; 2025 XBTCR Token. All rights reserved.
   </footer>
 
 </body>
