@@ -22,7 +22,7 @@ header {
 }
 
 .header-container {
-    width: 150%;
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -31,8 +31,9 @@ header {
 }
 
 .logo {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: auto;
+    border-radius: 0; /* Remove circle */
 }
 
 .main-nav ul {
@@ -41,7 +42,7 @@ header {
 }
 
 .main-nav li {
-    margin-left: 1.5rem;
+    margin-left: 1.2rem;
 }
 
 .main-nav a {
@@ -75,32 +76,33 @@ header {
 
 /* Hero Section */
 .hero {
-    min-height: 200vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/hero-bg.jpg');
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
-    padding: 5rem;
+    padding: 4rem;
 }
 
 .hero-content h1 {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero-content p {
-    font-size: 4.5rem;
-    margin-bottom: 3.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .cta-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .cta-btn {
@@ -222,24 +224,25 @@ header {
 footer {
     background-color: #000;
     color: white;
-    padding: 2rem 0;
+    padding: 1rem 0;
     text-align: center;
 }
 
 .footer-container {
-    width: 30%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .footer-links {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
 }
 
 .footer-links a {
     color: #aaa;
     text-decoration: none;
-    margin: 0 1rem;
+    margin: 0 0.8rem;
     transition: color 0.3s;
 }
 
@@ -252,26 +255,26 @@ footer {
     .header-container {
         flex-direction: column;
     }
-    
-    .logo {
-        margin-bottom: 1rem;
-    }
-    
+
     .main-nav ul {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .main-nav li {
         margin: 0.5rem;
     }
-    
+
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    .footer-container {
+        width: 95%;
     }
 }
