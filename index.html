@@ -3,74 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XBTCR Token</title>
+  <title>XBTCR - Official Token</title>
+  <link rel="icon" type="image/png" href="xbtcr.png"/>
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: #0d0d0d;
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
     }
-
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
-      background-color: #1a1a1a;
-      border-bottom: 2px solid #444;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
     }
-
     .logo-left {
-      height: 50px;
+      height: 60px;
     }
-
     .logo-center {
       display: block;
-      margin: 30px auto 10px;
-      height: 150px;
+      margin: 30px auto 10px auto;
+      height: 120px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 20px;
     }
-
-    .content {
+    .main-content {
       text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
       padding: 20px;
     }
-
     h1 {
-      font-size: 2.5em;
-      margin-top: 0;
+      font-size: 36px;
+      margin-top: 10px;
     }
-
     p {
-      font-size: 1.2em;
-      line-height: 1.6;
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
     }
-
-    nav a {
-      color: #fff;
+    .buy-button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #fcd535;
+      color: #000;
+      padding: 14px 28px;
       text-decoration: none;
-      margin: 0 15px;
+      border-radius: 30px;
       font-weight: bold;
+      transition: background 0.3s ease;
     }
-
-    nav a:hover {
-      color: #00d9ff;
+    .buy-button:hover {
+      background-color: #f7c900;
     }
-
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      background-color: #1a1a1a;
-      border-top: 2px solid #444;
+      padding: 15px;
+      font-size: 14px;
+      color: #777;
       margin-top: 40px;
-    }
-
-    img {
-      background-color: white;
-      border-radius: 10px;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
@@ -78,21 +72,19 @@
 
   <header>
     <img src="xbtcr.png" alt="XBTCR Logo" class="logo-left" />
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="tokenomics.html">Tokenomics</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="whitepaper.html">Whitepaper</a>
-    </nav>
+    <div>XBTCR Official</div>
   </header>
 
-  <img src="xbtcr.png" alt="XBTCR Logo Center" class="logo-center" />
+  <img src="xbtcr.png" alt="XBTCR Logo Center" class="logo-center"/>
 
-  <div class="content">
+  <div class="main-content">
     <h1>Welcome to XBTCR</h1>
-    <p>XBTCR is a decentralized token powered by the Binance Smart Chain (BSC), built for the future of crypto. Buy, hold, and earn. Experience fast, safe, and fair tokenomics with 1T circulating supply and transparent transactions.</p>
-    <p>Live on PancakeSwap, verified on BscScan, and designed for growth.</p>
+    <p>
+      XBTCR is a decentralized token on the Binance Smart Chain (BSC), built for transparency, community, and utility. With 99T tokens burned and a final circulating supply of 1T, XBTCR stands for strength and simplicity.
+    </p>
+    <a class="buy-button" href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">
+      Buy on PancakeSwap
+    </a>
   </div>
 
   <footer>
