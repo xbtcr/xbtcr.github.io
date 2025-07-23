@@ -2,35 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XBTCR - Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XBTCR Token</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #ffffff;
-      color: #000;
+      color: #111;
     }
 
-    .top-bar, .bottom-bar {
-      background-color: #000;
-      color: white;
-      padding: 10px 0;
-      text-align: center;
-    }
-
+    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #f0f0f0;
+      background-color: #000;
       padding: 10px 30px;
     }
 
-    .navbar .logo-left img {
-      height: 50px;
+    .navbar img {
+      height: 40px;
+      background: white;
       border-radius: 50%;
-      background-color: white;
+      padding: 3px;
     }
 
     .nav-links {
@@ -39,63 +35,85 @@
     }
 
     .nav-links a {
+      color: white;
       text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #f39c12;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero img {
+      width: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .hero p {
+      font-size: 1.3em;
       color: #333;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #000;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
       font-weight: bold;
     }
 
-    .main-content {
-      text-align: center;
-      padding: 50px 20px;
+    .hero a:hover {
+      background-color: #f39c12;
+      color: #000;
     }
 
-    .main-content .logo-center img {
-      height: 160px;
-      border-radius: 50%;
-      background-color: white;
-    }
-
-    .main-content h1 {
-      font-size: 32px;
-      margin-top: 20px;
-    }
-
-    .main-content p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 20px auto;
-    }
-
-    .buy-button {
-      background-color: #ff9900;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 14px;
-      padding: 20px;
+    /* Footer */
+    footer {
       background-color: #000;
       color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2em;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">XBTCR Official Website</div>
-
+  <!-- Navbar -->
   <div class="navbar">
-    <div class="logo-left">
-      <img src="xbtcr.png" alt="XBTCR Logo">
-    </div>
+    <img src="xbtcr.png" alt="XBTCR Logo Left" />
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -107,16 +125,20 @@
     </div>
   </div>
 
-  <div class="main-content">
-    <div class="logo-center">
-      <img src="xbtcr.png" alt="XBTCR Center Logo">
-    </div>
+  <!-- Hero Section -->
+  <div class="hero">
+    <img src="xbtcr.png" alt="XBTCR Logo Center" />
     <h1>Welcome to XBTCR</h1>
-    <p>Buy, Hold, Earn. Trade XBTCR now on PancakeSwap. 100T supply, 99T burned, only 1T left. Future of crypto, fast and fair.</p>
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="buy-button">Buy Now</a>
+    <p>XBTCR is a decentralized crypto token with 1 Trillion supply, 99T burned, and trading live on PancakeSwap.</p>
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">
+      Buy Now on PancakeSwap
+    </a>
   </div>
 
-  <div class="bottom-bar">© 2025 XBTCR. All rights reserved.</div>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 XBTCR Token. All rights reserved.
+  </footer>
 
 </body>
 </html>
