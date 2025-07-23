@@ -1,108 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XBTCR Token - Official Website</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>XBTCR Token</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #222;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
     }
+
     header {
-      background: #000;
-      color: white;
-      padding: 10px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      position: relative;
-    }
-    .logo-container {
-      display: flex;
       align-items: center;
-      gap: 20px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
     }
+
     .logo {
-      height: 60px;
-      width: 60px;
-      background: white;
-      border-radius: 50%;
-      padding: 5px;
+      height: 50px;
     }
-    .nav {
-      display: flex;
-      gap: 20px;
-    }
-    .nav a {
-      color: white;
+
+    nav a {
+      color: #fff;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
-    .ticker {
-      background: #333;
-      color: #fff;
-      padding: 8px;
-      font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
+
+    nav a:hover {
+      color: #00ffcc;
     }
-    .ticker-text {
-      display: inline-block;
-      animation: scroll-left 12s linear infinite;
-    }
-    @keyframes scroll-left {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    main {
-      padding: 40px;
+
+    .hero {
       text-align: center;
+      padding: 80px 20px;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+
+    .hero img {
+      max-width: 300px;
+      border-radius: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 20px #00ffcc;
     }
-    p {
-      font-size: 1.1em;
+
+    .hero h1 {
+      font-size: 3em;
+      color: #00ffcc;
+    }
+
+    .hero p {
+      font-size: 1.3em;
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto 30px;
+    }
+
+    .buy-button {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
-
-  <div class="ticker">
-    <div class="ticker-text">
-      XBTCR / WBNB Live Price: $0.000000053 | Market Cap: $53.67M | Total Supply: 1 Trillion | 3.5% Tax | 2% Slippage | Trading Live on PancakeSwap V2
-    </div>
-  </div>
-
   <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="XBTCR Logo" class="logo">
-    </div>
-    <nav class="nav">
+    <img src="logo.png" alt="XBTCR Logo" class="logo">
+    <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
       <a href="tokenomics.html">Tokenomics</a>
       <a href="roadmap.html">Roadmap</a>
       <a href="whitepaper.html">Whitepaper</a>
-      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <div class="logo-container">
-      <img src="logo.png" alt="XBTCR Logo" class="logo">
-    </div>
+    <img src="logo.png" alt="XBTCR Logo" class="logo">
   </header>
 
-  <main>
+  <section class="hero">
     <h1>Welcome to XBTCR</h1>
-    <p>The future of decentralized finance, built for the community with zero restrictions and fully open trading. Buy, Hold, Earn — All on PancakeSwap V2.</p>
-  </main>
+    <p>Buy, hold, earn. The future of DeFi is here with XBTCR. Secure your place in the revolution today.</p>
+    <img src="male.jpg" alt="XBTCR Male Image">
+    <br>
+    <a class="buy-button" href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">Buy on PancakeSwap</a>
+  </section>
 
+  <footer>
+    <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
+  </footer>
 </body>
+
 </html>
