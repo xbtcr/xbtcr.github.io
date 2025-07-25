@@ -2,33 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="XBTCR Whitepaper - A comprehensive guide to the XBTCR token including tokenomics, roadmap, tax structure, and more.">
   <title>XBTCR Whitepaper</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-      margin: 0;
-      padding: 40px;
+      margin: 40px;
+      background-color: #ffffff;
+      color: #000000;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    }
-    h1, h2 {
+    .logo-container {
       text-align: center;
-      color: #004080;
+      margin-bottom: 30px;
     }
-    h2 {
-      margin-top: 50px;
-      border-bottom: 2px solid #004080;
-      padding-bottom: 10px;
+    .logo {
+      max-width: 150px;
+      height: auto;
+    }
+    h1, h2, h3 {
+      color: #222222;
     }
     p {
       line-height: 1.6;
@@ -36,672 +27,91 @@
     .section {
       margin-bottom: 40px;
     }
+    hr {
+      margin: 30px 0;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>XBTCR Whitepaper</h1>
 
-    <div class="section">
-      <h2>Introduction</h2>
-      <p>Cryptocurrencies have transformed the global financial ecosystem, creating opportunities for decentralized finance, secure transactions, and trustless systems. In this evolving landscape, XBTCR emerges as a visionary token designed to offer simplicity, transparency, and utility for everyday users and crypto enthusiasts alike.
+  <div class="logo-container">
+    <img src="xbtcr.png" alt="XBTCR Logo" class="logo" onerror="this.src='https://via.placeholder.com/150?text=XBTCR'">
+  </div>
 
-XBTCR stands for a hybrid symbol that merges the symbolic strength of Bitcoin (XBT) with the emerging smart-contract ecosystem of Binance Smart Chain (BSC). It is not just another meme token-XBTCR was launched with a strong commitment to fairness, full transparency, and a no-restriction trading model. The project was built without a pre-sale, private investors, or unfair token allocations. All tokens were launched openly, and a whopping 99% of the total supply was burned at inception, leaving only 1 trillion tokens in active circulation.
+  <h1 style="text-align:center;">XBTCR Token Whitepaper</h1>
+  <hr>
 
-At its core, XBTCR believes in decentralization and community governance. The contract is verified, ownership renounced, and the liquidity added to PancakeSwap is fully unlocked for public trading. With a modest 3.5% tax on transactions (2% for marketing and 1.5% for auto-burn), the token promotes organic growth while rewarding holders and continuously reducing the supply.
+  <div class="section">
+    <h2>1. Introduction</h2>
+    <p>XBTCR is a next-generation BEP-20 token designed for secure, transparent, and community-driven trading. Built on Binance Smart Chain (BSC), XBTCR empowers holders through tokenomics, low taxes, and zero restrictions.</p>
+  </div>
 
-As a utility-focused token, XBTCR plans to expand beyond traditional crypto use cases. A dedicated mobile app, with mining simulation, ad rewards, and referral systems is under development-making it accessible to everyone, regardless of technical knowledge.
-
-This whitepaper aims to explore every facet of the XBTCR token-from tokenomics and roadmap, to its technology foundation, supply logic, and long-term vision. Whether you're a curious investor, a passionate community member, or a blockchain researcher, this document will give you full clarity into what XBTCR stands for and where it's headed.</p>
-    </div>
-
-    <div class="section">
-      <h2>Abstract</h2>
-      <p>The XBTCR token is a decentralized digital asset launched on the Binance Smart Chain (BSC), combining the brand familiarity of "XBT" (Bitcoin) with a fresh, community-driven approach to tokenomics and accessibility. Designed with fairness, transparency, and simplicity at its core, XBTCR operates without pre-sale allocations, lock-ins, or trading restrictions - offering an open market environment for all participants.
-
-A total of 100 trillion XBTCR tokens were minted at launch, out of which 99 trillion were permanently burned, leaving a fixed circulating supply of just 1 trillion tokens. The contract is fully verified, ownership is renounced, and the token is listed on PancakeSwap V2 for permissionless trading.
-
-With a modest 3.5% tax on each transaction (2% marketing, 1.5% auto-burn), XBTCR implements a deflationary model that rewards long-term holders while reducing supply over time. The project also introduces an innovative utility roadmap, including a dedicated mobile mining app with simulated rewards, ad mining, and referral-based income - making it user-friendly and accessible to both crypto natives and new users.
-
-This whitepaper outlines the XBTCR project's vision, token mechanics, smart contract details, and future developments to provide a comprehensive understanding for potential investors, partners, and community members.</p>
-    </div>
-
-    <div class="section">
-      <h2>XBTCR Vision</h2>
-      <p>XBTCR envisions a transparent, community-driven, and decentralized financial future where anyone - regardless of background, wealth, or geography - can participate in the growing crypto economy safely and fairly.
-
-Our goal is to restore trust in digital tokens by eliminating manipulation, complexity, and hidden agendas. By combining simplicity, open-source transparency, and fair tokenomics, XBTCR aims to:
-
-Empower users with a contract that is fully renounced - no central authority, no rug pulls.
-
-Ensure fairness by burning 99% of the total supply, leaving only 1 Trillion tokens in true circulation.
-
-Build a global movement that promotes self-custody, peer-to-peer trading, and long-term holding culture.
-
-Support decentralized growth through tools like PancakeSwap, DEXTools, and future app integrations.
-
-XBTCR is more than a token - it’s a symbol of fairness, a rebellion against shady crypto practices, and a launchpad for future innovations in DeFi and beyond.
-
-We believe the future of finance must be built on honesty, accessibility, and community-first principles - and XBTCR is here to prove it.</p>
-    </div>
-
-    <div class="section">
-      <h2>Blockchain Overview</h2>
-      <p>XBTCR is deployed on the Binance Smart Chain (BSC) - a high-performance blockchain known for its low transaction fees, fast block times, and robust smart contract support. BSC has become a popular choice for decentralized applications (dApps) and tokens due to its scalability, EVM compatibility, and vast user base.
-
-Why Binance Smart Chain?
-Fast Transactions: BSC offers 3-second block times, enabling rapid confirmations and smooth user experience.
-
- Low Gas Fees: Unlike Ethereum’s often congested and costly network, BSC provides affordable on-chain transactions.
- Smart Contract Support: Fully compatible with Ethereum’s Solidity language, making it easy  to build and audit secure contracts.
-
-Cross-Chain Integration: BSC supports BEP-20 tokens and bridges to other major chains for future interoperability.
-
-XBTCR on BSC:
-Token Standard: BEP-20
-
-Contract Address: 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9
-
-Explorer: BscScan
-
-DEX Pair: PancakeSwap V2 - XBTCR/WBNB
-
-By choosing BSC, XBTCR ensures that both newcomers and experienced crypto users can access the token seamlessly, affordably, and securely - laying the foundation for long-term adoption and utility.</p>
-    </div>
-
-    <div class="section">
-      <h2>Tokenomics</h2>
-      <p>XBTCR is designed with a transparent, fair, and sustainable tokenomic model. The total supply, burn mechanism, and transaction taxes have been carefully structured to support long-term value, reward holders, and maintain liquidity across the ecosystem.<br>
-      Token Name:   XBTCR<br>
-      Symbol:	XBTCR<br>
-      Network:	                Binance Smart Chain (BEP-20)<br>
-      Contract Address:	0x4274c09719F4eb538682F74DB27f7DB6DE330cd9<br>
-      Total Supply: 100 Trillion<br>
-      Burned Tokens: 99 Trillion<br>
-      Final Supply: 1 Trillion<br>
-      Burn TX:	View on BscScan</p>
-    </div>
-
-    <div class="section">
-      <h2>Smart Contract Audit</h2>
-      <p>The XBTCR token smart contract is developed on the Binance Smart Chain (BSC) using Solidity. 
-    The code has been verified and is publicly visible on BscScan at:
-    0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</p>
-    </div>
-
-    <div class="section">
-      <h2>Burn & Supply Model</h2>
-      <p>A massive 99% of the supply was burned at launch by sending it to the dead wallet:
-0x000000000000000000000000000000000000dEaD<br>
-This move drastically reduced circulating supply and increased scarcity, supporting long-term price stability.</p>
-    </div>
-
-    <div class="section">
-      <h2>Tax Structure</h2>
-<p>Each transaction on the XBTCR network includes a small tax to support the project ecosystem<br>
-
-<p>Tax Type	Percentage<br>
-Marketing	2.00%<br>
-Auto-Burn	1.50%<br>
-Total Tax	3.50%<br>
-
-✅ No Whitelist<br>
-
-✅ No Blacklist<br>
-
-✅ Slippage: 2% (optimal for smooth trading)<br>
-
-✅ Liquidity Pool: Live on PancakeSwap V2 (XBTCR/WBNB)</p>
-    </div>
-
-    <div class="section">
-      <h2>Liquidity & Slippage</h2>
-      <p>XBTCR is tradable on PancakeSwap with open and unrestricted trading. There are no limitations or special permissions required, ensuring fair market access for all participants.<br>
-🔍 Smart Contract Audit
-Security and transparency are top priorities for the XBTCR project. To ensure that the token contract is safe, optimized, and resistant to malicious activity, the XBTCR smart contract has undergone internal checks and community verification.<br>
-
-✅ Contract Overview
-Blockchain: Binance Smart Chain (BEP-20 standard)<br>
-
-<h>Contract Address:</h> 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9<br>
-
-Verified on BscScan: View Source Code.</p>
-    </div>
-
-    <div class="section">
-      <h2>Use Cases</h2>
-      <p>XBTCR is more than just a token - it is designed to support multiple real-world applications and decentralized functionalities across the crypto ecosystem. Below are the key use cases of XBTCR:
-  </p>
-  <ul>
-    <li><strong>1. Store of Value: </strong> With a burned supply of 99%, XBTCR offers a deflationary model ideal for long-term holding.</li>
-    <li><strong>2. Community Mining Rewards: </strong> Users can mine simulated XBTCR via mobile apps with time-based or ad-rewarded mining models.</li>
-    <li><strong>3. Peer-to-Peer Transfers: </strong> XBTCR enables fast and low-cost transactions globally via the Binance Smart Chain.</li>
-    <li><strong>4. Utility in Mobile Applications: </strong> XBTCR will power user incentives, ad rewards, and referral earnings within our official mobile app ecosystem.</li>
-    <li><strong>5. E-commerce Integration (Future Plan): </strong> Merchants and developers may integrate XBTCR as a micro-payment method using API plugins.</li>
-    <li><strong>6. Trading on DEXs: </strong> Tradeable on PancakeSwap, XBTCR allows users to swap with other BSC tokens in a decentralized, permissionless manner.</li>
-    <li><strong>7. Governance (Future Proposal): </strong> As community governance evolves, XBTCR holders may vote on feature updates or ecosystem decisions.</li>
-  </ul>
-  <p>
-    These use cases collectively aim to build real utility, adoption, and demand for XBTCR, differentiating it from ordinary meme tokens.</p>
-    </div>
-
-    <div class="section">
-      <h2>Community Ecosystem</h2>
-      <p>The heart of XBTCR lies in its community. We are committed to fostering a transparent, supportive, and engaging ecosystem where every holder and contributor has a voice. Our community is not just a group of investors — it is a growing network of supporters, developers, creators, and visionaries working together to strengthen the project.
-    </p>
+  <div class="section">
+    <h2>2. Token Overview</h2>
     <ul>
-      <li><strong>Open Governance:</strong> Community feedback shapes decision-making, future features, and integrations.</li>
-      <li><strong>Inclusive Participation:</strong> Anyone can contribute to the growth of XBTCR — through marketing, development, outreach, and creative initiatives.</li>
-      <li><strong>Rewarding Loyalty:</strong> Long-term holders and active participants will benefit from future airdrops, exclusive content, and priority access to new tools and utilities.</li>
-      <li><strong>Educational Focus:</strong> We aim to equip our community with knowledge, updates, and guidance to navigate the DeFi space confidently.</li>
+      <li><strong>Token Name:</strong> XBTCR</li>
+      <li><strong>Network:</strong> Binance Smart Chain (BEP-20)</li>
+      <li><strong>Contract Address:</strong> 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</li>
+      <li><strong>Decimals:</strong> 18</li>
     </ul>
-    <p>
-      As XBTCR evolves, the community remains the core pillar driving innovation, adoption, and resilience.
-    </p>
   </div>
-</section>
 
-<section id="audit-summary">
-  <h2>Smart Contract Audit Summary</h2>
-  <p>
-    The XBTCR smart contract was developed on the Binance Smart Chain (BEP-20 standard) with a focus on simplicity, security, and transparency. A preliminary code review was conducted to evaluate the safety and efficiency of the contract.
-  </p>
-  
-  <h3>Key Audit Highlights:</h3>
-  <ul>
-    <li><strong>Ownership Renounced: </strong> The contract ownership has been permanently renounced, preventing any administrative control or modification post-deployment.</li>
-    <li><strong>Fixed Supply: </strong> Total initial supply was 100 trillion, with 99 trillion tokens verifiably burned. Final circulating supply is 1 trillion tokens.</li>
-    <li><strong>No Minting Functions: </strong> The contract does not include any mint functionality, ensuring no additional tokens can be created.</li>
-    <li><strong>No Blacklist/Whitelist: </strong> The token contract does not implement restrictive blacklist or whitelist functions - trading is fully permissionless.</li>
-    <li><strong>Tax Configuration: </strong> Static tax rates coded: 2% for marketing and 1.5% for auto-burn, totaling 3.5% on each transaction.</li>
-    <li><strong>LP Safety: </strong> Liquidity has been added to PancakeSwap V2 and is fully verifiable. LP tokens are not held by the deployer wallet.</li>
-  </ul>
-  
-  <p>
-    The contract was verified and published on <a href="https://bscscan.com/address/0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">BscScan</a>, allowing public visibility into the source code and all token transactions.
-  </p>
-
-  <h3>Security Note:</h3>
-  <p>
-    Although a formal audit by a third-party firm is not yet completed, the open-source nature of the contract and renounced ownership provide strong community trust signals. Further auditing and Certik-style reviews are planned in the project's future roadmap.
-  </p>
-</section>
-
-<section id="community-ecosystem">
-  <h2>Community Ecosystem</h2>
-  <p>
-    The strength of XBTCR lies in its rapidly growing and engaged community. We believe that a thriving token ecosystem is powered not only by its code but by the people who support, build, and advocate for it. The XBTCR community is central to the token’s vision and sustainability.
-  </p>
-
-  <h3>Core Community Elements:</h3>
-  <ul>
-    <li><strong>Decentralized Ownership:</strong> With no central authority or privileged wallet, the project is community-driven and fully transparent.</li>
-    <li><strong>Social Channels:</strong> XBTCR is active on Telegram, Twitter (<a href="https://twitter.com/xbtcrtoken" target="_blank">@xbtcrtoken</a>), and future community forums. These platforms enable instant updates and open dialogue.</li>
-    <li><strong>Support-Driven Growth:</strong> All marketing, expansion, and listings are driven by community fundraising, collaboration, and participation.</li>
-    <li><strong>Referral and Rewards:</strong> The XBTCR mobile app integrates a referral system and slow mining simulator, incentivizing users to earn while promoting adoption.</li>
-    <li><strong>Education and Transparency:</strong> Regular updates, how-to guides, and transparent token data are made publicly accessible via the official GitHub and BscScan links.</li>
-  </ul>
-
-  <p>
-    By empowering users, traders, and creators to take part in governance and adoption, XBTCR builds not just a token—but a lasting decentralized movement.
-  </p>
-</section>
-
-
-    <div class="section">
-      <h2>Marketing Strategy</h2>
-      <p>The marketing strategy for XBTCR focuses on organic growth, community engagement, and visibility across decentralized platforms. Rather than relying on paid hype or influencers, XBTCR leverages transparency, real utility, and strategic partnerships to build trust and reach.
-  </p>
-
-  <h3>Key Marketing Components:</h3>
-  <ul>
-    <li><strong>Grassroots Promotion:</strong> Community-driven awareness through Telegram groups, X (Twitter), meme contests, and share-to-earn campaigns.</li>
-    <li><strong>Influencer Collaboration:</strong> Select crypto influencers and YouTube reviewers will be approached for honest coverage and reviews of the XBTCR project.</li>
-    <li><strong>Content Marketing:</strong> Regular updates, articles, roadmap progress, and app features will be shared via GitHub Pages, Medium, and BscScan links.</li>
-    <li><strong>Listing Campaigns:</strong> Active outreach for listings on CoinGecko, CoinMarketCap, DEXTools, and top decentralized exchanges (DEXs).</li>
-    <li><strong>Partnership Promotions:</strong> As XBTCR forms strategic alliances, these will be leveraged for co-marketing and shared visibility across platforms.</li>
-    <li><strong>SEO & Visibility:</strong> Optimized web pages and token info to ensure higher discoverability on blockchain explorers, search engines, and ranking tools.</li>
-    
-  </ul>
-
-  <p>
-    Our marketing vision is to build a brand that represents fairness, transparency, and innovation—without compromising decentralization.
-  </p>
-</section>
-    </div>
-
-    <div class="section">
-      <h2>Security & Trust Factors</h2>
-      <p> XBTCR is built with a strong emphasis on security and community trust. We believe that transparency, accountability, and verifiable safety measures are essential to long-term success in the decentralized finance ecosystem.
-  </p>
-
-  <h3>Core Security Measures:</h3>
-  <ul>
-    <li><strong>Verified Smart Contract:</strong> The XBTCR contract is publicly verified on <a href="https://bscscan.com/address/0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">BscScan</a>, ensuring full visibility of the code and all transactions.</li>
-    <li><strong>Token Burn:</strong> 99 Trillion tokens were permanently burned at launch, with verifiable proof on-chain, leaving only 1 Trillion in circulation.</li>
-    <li><strong>Renounced Ownership:</strong> Ownership of the contract has been renounced, preventing any centralized control or post-deployment changes by developers.</li>
-    <li><strong>No Mint Functions:</strong> The contract does not include any minting capabilities, ensuring that no additional tokens can ever be created.</li>
-    <li><strong>No Blacklist or Whitelist:</strong> Open access for all holders and traders—no restrictive functions embedded in the smart contract.</li>
-    <li><strong>Audited Code:</strong> A security audit has been conducted to assess vulnerabilities, gas efficiency, and exploit prevention mechanisms.</li>
-  </ul>
-
-  <h3>Transparency & Community Assurance:</h3>
-  <ul>
-    <li><strong>Open Source:</strong> The contract source code and deployment history are openly accessible via blockchain explorers.</li>
-    <li><strong>Visible Burn Transaction:</strong> <a href="https://bscscan.com/tx/0x46c173b743001535960241d9563dfe37733d7955d1388771d5f00c02c3b3a9f3" target="_blank">View Burn TX on BscScan</a></li>
-    <li><strong>Community Moderation:</strong> Telegram and social platforms are moderated by community volunteers and admins to prevent scams and misinformation.</li>
-  </ul>
-
-  <p>
-    XBTCR is committed to building a trustless ecosystem where the community, not the developers, hold power. Our approach to security and fairness helps protect investors and fosters confidence in the project.</p>
-</section>
-    </div>
-
-    <div class="section">
-      <h2>Roadmap</h2>
-      <p>The XBTCR roadmap outlines our phased development strategy, ensuring steady growth, adoption, and utility for the community. We focus on transparency, deliverables, and evolving based on user feedback and market trends.</p>
-
-  <h3>Phase 1: Launch & Foundation</h3>
-  <ul>
-    <li>✅ Smart contract deployment on BNB Chain</li>
-    <li>✅ Verified contract on BscScan</li>
-    <li>✅ Token burn (99T) and ownership renouncement</li>
-    <li>✅ Website and whitepaper publication</li>
-    <li>✅ Initial liquidity added on PancakeSwap (XBTCR/WBNB)</li>
-  </ul>
-
-  <h3>Phase 2: Awareness & Community</h3>
-  <ul>
-    <li>✅ Launch of official social media accounts (Twitter, Telegram)</li>
-    <li>✅ Listings on DEXTools and similar platforms</li>
-    <li>🔄 BscScan token information update submission</li>
-    <li>🔄 CoinGecko & CoinMarketCap listing submissions</li>
-    <li>📣 Initial marketing push & community rewards</li>
-  </ul>
-
-  <h3>Phase 3: Ecosystem Expansion</h3>
-  <ul>
-    <li>🚧 Launch of XBTCR mobile mining app (Android APK)</li>
-    <li>🚧 Referral-based mining reward system</li>
-    <li>🚧 Staking and on-chain utility integration</li>
-    <li>🚧 Strategic partnerships and influencer campaigns</li>
-    <li>🚧 First centralized exchange (CEX) listing target</li>
-  </ul>
-
-  <h3>Phase 4: Utility & Adoption</h3>
-  <ul>
-    <li>🔜 Cross-chain bridges and multi-chain availability</li>
-    <li>🔜 NFT integration and marketplace listing</li>
-    <li>🔜 Launchpad collaboration and fundraising support</li>
-    <li>🔜 Ecosystem governance planning and DAO framework</li>
-  </ul>
-
-  <p>⚠️ <strong>Note:</strong> Roadmap milestones may adjust based on market conditions, user demand, and ongoing development priorities. All updates will be communicated transparently to the community.</p>
-</section></p>
-    </div>
-
-    <div class="section">
-      <h2>Privacy Policy</h2>
-      <p><section id="privacy-policy">
-  <p>Effective Date: July 24, 2025</p>
-
-  <p>This Privacy Policy outlines how XBTCR (“we”, “our”, or “us”) collects, uses, and protects any personal information provided by users (“you”) on our website and associated services.</p>
-
-  <h3>1. Information We Collect</h3>
-  <ul>
-    <li><strong>Non-Personal Information:</strong> We may collect general data such as browser type, IP address, device type, and referral URLs to analyze site traffic and performance.</li>
-    <li><strong>Personal Information (if applicable):</strong> If you contact us via forms, email, or register through our mobile app, we may collect your name, email address, and wallet address.</li>
-  </ul>
-
-  <h3>2. How We Use Your Information</h3>
-  <ul>
-    <li>To operate and improve our website and mobile app</li>
-    <li>To respond to inquiries or customer support requests</li>
-    <li>To communicate important updates, promotions, or alerts</li>
-    <li>To prevent fraud, abuse, or violations of terms</li>
-  </ul>
-
-  <h3>3. Data Security</h3>
-  <p>We implement reasonable security measures to protect your data. However, no method of transmission over the Internet or electronic storage is 100% secure. Use our services at your own risk.</p>
-
-  <h3>4. Cookies & Tracking</h3>
-  <p>We may use cookies and similar technologies to enhance your user experience, gather analytics, and understand user behavior. You can disable cookies in your browser settings.</p>
-
-  <h3>5. Third-Party Services</h3>
-  <p>Our site may contain links to third-party platforms (e.g., BscScan, PancakeSwap, social media). We are not responsible for their privacy practices. Please review their policies separately.</p>
-
-  <h3>6. Children’s Privacy</h3>
-  <p>XBTCR does not knowingly collect information from individuals under the age of 13. If we become aware of such data, we will promptly delete it.</p>
-
-  <h3>7. Your Rights</h3>
-  <p>You have the right to access, update, or delete your personal data by contacting us. We will respond to such requests as required by applicable laws.</p>
-
-  <h3>8. Changes to This Policy</h3>
-  <p>We reserve the right to update this Privacy Policy at any time. All changes will be posted on this page with an updated effective date.</p>
-
-  <h3>9. Contact Us</h3>
-  <p>If you have questions about this Privacy Policy, please contact us via our official email or Telegram channel.</p>
-</section>
-</p>
-    </div>
-
-    <div class="section">
-      <h2>Legal Disclaimer</h2>
-      <p>The information provided in this document (“Whitepaper”) is for general informational purposes only and does not constitute financial, investment, legal, or other professional advice. The XBTCR project, including its developers, team members, and affiliates, makes no guarantees of any kind regarding the future performance, value, or legality of the XBTCR token or related products.
-
-XBTCR is a decentralized digital asset launched on the Binance Smart Chain. By participating in the XBTCR ecosystem, including purchasing, holding, or trading the token, users acknowledge and accept that cryptocurrencies are inherently volatile and subject to significant risk. Users are solely responsible for their investment decisions and actions.
-
-Nothing in this Whitepaper should be interpreted as a solicitation or offer to buy or sell securities in any jurisdiction. The regulatory status of digital assets may vary across countries, and it is the responsibility of the user to ensure compliance with local laws and regulations.
-
-XBTCR does not represent or guarantee the completeness, accuracy, or reliability of the information contained in this Whitepaper. This document is subject to change without prior notice as the project evolves.
-
-By accessing and reading this Whitepaper, you agree that you are not relying on it as a basis for any financial decision and that you accept the risks associated with participating in the XBTCR project.</p>
-    </div>
-
-    <div class="section">
-      <h2>Future Utility</h2>
-      <p>The XBTCR token is built with a forward-thinking vision, aiming to expand its role and real-world applicability over time. Our long-term roadmap is not just about being a trading asset — it’s about becoming a comprehensive digital utility token that adds value across various sectors. Here’s what the future holds:
-
-<br>🔹 1. In-App Rewards & Mining<br>
-XBTCR will serve as the core token in our upcoming mobile mining app, where users can simulate mining and earn real tokens over time.
-
-Reward structures will be based on engagement, referrals, and ad mining activity.
-
-<br>🔹 2. Payment Integration<br>
-Future partnerships will enable XBTCR to be accepted as a payment method for select online merchants, gaming platforms, and digital service providers.
-
-API tools for merchants will be developed to simplify integration.
-
-<br>🔹 3. Staking & Passive Rewards<br>
-A staking system will be introduced where holders can lock their XBTCR tokens for a fixed period to earn yield or exclusive perks.
-
-Reward distribution will be based on lock duration and staking pool weight.
-
-<br>🔹 4. NFT & Gaming Utilities<br>
-Plans are underway to create an NFT ecosystem where XBTCR can be used to mint, trade, or unlock special items.
-
-In select GameFi projects, XBTCR may be used to purchase in-game assets or participate in play-to-earn models.
-
-<br>🔹 5. Decentralized Governance (DAO)<br>
-In future phases, XBTCR holders will have voting rights to influence project developments, including marketing budgets, future burn decisions, and feature rollouts.
-
-DAO governance ensures community-led growth and decentralized decision-making.
-
-<br>🔹 6. DeFi & Utility Expansion<br>
-Integration into DeFi platforms like farming, lending, or liquidity pools will give more financial use to XBTCR holders.
-
-Partnerships with other DeFi protocols on BSC or multi-chain bridges are being explored.
-
-<br>🔹 7. XBTCR Wallet & DApp<br>
-The official XBTCR Wallet app will allow users to view balances, send/receive tokens, track earnings, and access ecosystem tools all in one place.
-
-Later, a full-fledged DApp may be developed to host marketplace features and community voting.
-
-Conclusion:
-XBTCR is more than just a meme or tradeable token — it's a multi-utility digital asset with growing potential. Through technological innovation, real-world applications, and a committed community, XBTCR aims to evolve into a cornerstone of the BSC ecosystem and beyond.</p>
-    </div>
-
-    <div class="section">
-      <h2>Team & Transparency</h2>
-      <p>At XBTCR, we believe that trust and transparency form the foundation of every successful crypto project. Although our project embraces the decentralization ethos of Web3 — allowing for community-led growth and minimal centralized control — we are committed to full clarity in operations, ownership, and token structure.
-
-<br>🔹 Core Team Philosophy<br>
-While the XBTCR team currently operates under a pseudonymous structure, this does not mean anonymity equals secrecy. We remain fully accountable to our holders through:
-
-Public smart contract verification
-
-Transparent tokenomics and live BscScan data
-
-Prompt community support via social channels
-
-Timely communication on updates and developments
-
-<br>🔹 Smart Contract & Ownership<br>
-<br>✅ Contract Verified on BscScan<br>
-<br>0x4274c09719F4eb538682F74DB27f7DB6DE330cd9<br>
-
-<br>✅ Ownership Renounced<br>
-Ensures no further edits or centralized control over the contract.
-
-<br>✅ Liquidity Unlocked and Transparent<br>
-<br>PancakeSwap Pair: XBTCR/WBNB<br>
-
-<br>🔹 Community-Focused Structure<br>
-No pre-sale
-
-No team tokens
-
-No private allocations
-
-Fully open trading from Day 1
-
-This structure promotes fairness, equality, and a truly decentralized distribution.
-
-<br>🔹 Public Transparency<br>
-<br>Element	Status<br>
-<br>✅Whitepaper	 Published on official website<br>
-<br>✅Tokenomics	 Public and verifiable<br>
-<br>✅Burned Supply	 99% Burn confirmed (1T circulating)<br>
-<br>✅Team Communication	 Ongoing via [@xbtcrtoken on X]<br>
-<br>✅BscScan Token Info	 Submission in process<br>
-
-<br>🔹 Future Team Disclosure<br>
-As the project grows, we aim to progressively reveal more about our contributors and open doors for community-led development, collaborations, and governance.
-
-<br>✅ Summary<br>
-XBTCR may have started with meme energy, but it’s being built with serious intent. We are fully committed to transparency, integrity, and long-term delivery, all while staying true to the spirit of decentralization.
-
-Let the code speak. Let the community lead. Let the token grow.</p>
-    </div>
-
-    <div class="section">
-      <h2>Partnership Opportunities</h2>
-      <p>At XBTCR, we are actively seeking strategic partnerships that align with our mission to create a strong, community-driven ecosystem rooted in transparency, utility, and innovation. Whether you are a platform, influencer, developer, exchange, or blockchain service provider — we welcome collaboration.
-
-<br>🔹 Why Partner with XBTCR?<br>
-XBTCR offers a rare combination of:
-
-<br>✅ 100% fair launch (no presale, no team tokens)<br>
-
-<br>✅ Verified contract & renounced ownership<br>
-
-<br>✅ Active community and growing brand<br>
-
-<br>✅ Scalable use case potential in mining, rewards & gamification<br>
-
-<br>✅ Strong early tokenomics with long-term sustainability<br>
-
-These factors make us an ideal choice for value-driven partnerships in the DeFi, Web3, and crypto innovation spaces.
-
-<br>🔹 Partnership Types<br>
-We are open to a wide range of collaboration models, including:
-
-<br>Partnership Type	Ideal Partners<br>
-<br>CEX / DEX Listings	Exchanges seeking high-potential assets<br>
-<br>DeFi Integrations	Staking pools, farming, and dApps<br>
-<br>Influencer Marketing	Crypto content creators & educators<br>
-<br>Launchpads / Incubators	Project accelerators or grant programs<br>
-<br>Wallets & Trackers	Token trackers, analytics platforms<br>
-<br>Blockchain Services	Auditing, infrastructure, and API tools<br>
-<br>NFT/Metaverse Collabs	Cross-brand opportunities<br>
-
-<br>🔹 Our Commitment to Partners<br>
-<br>We offer:<br>
-
-Transparent communication
-
-Co-marketing and promotional efforts
-
-Ecosystem incentives and cross-exposure
-
-Community event collaborations
-
-Priority integration into future dApps and products
-
-<br>🔹 Let’s Build Together<br>
-If you represent a brand, platform, or individual who believes in decentralization, innovation, and community-led success, we would love to connect.
-
-<br>📧 For partnership inquiries:<br>
-<br>Email us at contact:xbtcrtoken@gmail.com<br>
-or reach out via Twitter @xbtcrtoken
-
-Together, We Grow.
-Partner with XBTCR and become a part of a revolution that rewards belief, trust, and bold vision.</p>
-    </div>
-
-    <div class="section">
-      <h2>Social Media & Outreach</h2>
-      <p>To amplify our presence, build trust, and engage our growing global community, XBTCR is leveraging an aggressive, transparent, and consistent social media & outreach strategy. We believe that real community-building begins with open communication, responsive updates, and active engagement across all major platforms.
-
-<br>🔹 Our Official Channels<br>
-<br>Platform	Handle / Link	Purpose<br>
-<br>Twitter (X)	@xbtcrtoken	News, updates, marketing, community polls<br>
-<br>Telegram	t.me/XBTCRCommunity (coming soon)	Live chat, support, AMA sessions<br>
-<br>GitHub	xbtcr.github.io	Open-source, whitepaper, docs<br>
-<br>YouTube	(Coming soon)	Promo videos, tutorials, AMAs<br>
-<br>Coin trackers	CoinMarketCap & CoinGecko (submitted)	Token visibility & market updates<br>
-
-<br>🔹 Key Outreach Tactics<br>
-<br>Daily Twitter Engagement<br>
-Polls, market insights, memes, and holder shout-outs
-Launch teasers and update threads
-
-<br>Influencer Collaborations<br>
-Strategic campaigns with verified crypto influencers
-YouTube reviews and Twitter AMAs
-
-<br>Community-Driven Growth<br>
-Weekly contests, giveaways, meme challenges
-Airdrop-style engagement rewards
-
-<br>Email & Blog Outreach<br>
-Partner and investor updates
-Newsletter (coming soon) for community announcements
-
-<br>DEXTools, BSCScan, and PancakeSwap Visibility<br>
-Verified pair listings, liquidity tracking, and traffic from live token stats
-
-<br>🔹 Community First, Always<br><br>
-We respond to every genuine question, critique, and suggestion with respect. Our outreach isn't just marketing — it's relationship-building.
-
-<br>🔹 Join the Movement<br>
-Help us grow by:
-
-Following and retweeting @xbtcrtoken
-
-Tagging $XBTCR in your posts and charts
-
-Sharing your experience as a holder
-
-Inviting friends to our community
-
-<br>🌐 XBTCR: Powered by People. Amplified by Outreach.<br>
-Let’s make noise, build trust, and take XBTCR to the top — together.</p>
-    </div>
-
-    <div class="section">
-      <h2>Token Holder Benefits</h2>
-      <p>Holding $XBTCR isn't just about owning a token — it’s about being part of a visionary project with real benefits, utility, and future potential. We reward our holders through a combination of tokenomics, community perks, and strategic development.
-
-<br>🔹 1. Low Slippage, Fair Tax<br>
-<br>Only 3.5% Total Tax<br>
-<br>2.0% for Marketing & Growth<br>
-<br>1.5% Auto-Burn (deflationary benefit to all holders)<br>
-
-<br>2% Suggested Slippage for smooth buying/selling<br>
-
-<br>➡️ You get better price entry/exit without high friction.<br>
-
-<br>🔹 2. Deflation = More Value Per Token<br>
-<br>99% of total supply burned<br>
-<br>From 100 Trillion to 1 Trillion supply<br>
-<br>Check Burn TX: View on BscScan<br>
-
-<br>✅ As supply drops, scarcity increases — rewarding long-term holders.<br>
-
-<br>🔹 3. Liquidity Pool (LP) on PancakeSwap V2<br>
-<br>Fully tradable with XBTCR/WBNB pair<br>
-
-<br>24/7 decentralized trading<br>
-
-No central control – trading is permissionless
-
-<br>🔹 4. Early Holder Advantage<br>
-Low entry price + organic market cap growth
-
-Exposure during development stage = higher upside
-
-<br>🔹 5. Future Utility in App & Ecosystem<br>
-XBTCR Mobile App (in development)
-<br>In-app wallet with balance display<br>
-<br>Slow mining feature (earn by holding and using the app)<br>
-<br>Referral and ad-based reward system<br>
-
-Token will power future services, including staking & NFTs
-
-<br>🔹 6. Giveaways & Airdrops<br>
-Twitter, Telegram, and community contests
-
-Exclusive airdrops for loyal holders
-
-<br>🔹 7. Transparency & Safety<br>
-Ownership Renounced – No centralized control
-
-Verified Contract on BscScan
-
-Burned Tokens = Locked Forever
-
-<br>🔹 8. Long-Term Vision with Roadmap<br><br>
-Holders benefit from:
-
-Exchange listings
-
-Marketing campaigns
-
-Partnerships & app utility
-
-<br>📈 The more we grow, the more valuable your holdings become.<br>
-
-<br>💎 Holding $XBTCR = Investing in the Future<br>
-If you're holding, you're already ahead.
-If you're thinking — the best time to hold was yesterday.
-The second-best time is now.
-
-<br>🔗 Trade now on PancakeSwap V2<br>
-<br>🪙 Pair: XBTCR/WBNB<br>
-<br>📊 Market Cap: Live tracking on BSCScan + DEXTools<br>
-
-XBTCR: Hold. Earn. Rise. 🔥</p>
-    </div>
-
-    <div class="section">
-      <h2>Exchange Strategy</h2>
-      <p>XBTCR's exchange strategy is designed to ensure long-term accessibility and liquidity for all users. We are initially focusing on decentralized exchanges (DEXs) such as PancakeSwap for rapid adoption and user flexibility. This approach allows for immediate trading with full transparency and without reliance on centralized intermediaries.
-    </p>
-    <p>
-      Once liquidity and community interest reach strategic milestones, we plan to expand to major centralized exchanges (CEXs). Listings will be prioritized based on trading volume, geographical user base, and security reputation. Our team will maintain active communication with exchanges to streamline compliance and integration.
-    </p>
-    <p>
-      In parallel, we will engage with aggregators and platforms like CoinMarketCap and CoinGecko to boost visibility and provide real-time data access to the global crypto audience.
-    </p>
-    <p>
-      A portion of the tax revenue is allocated specifically for listing fees and liquidity support to ensure smooth onboarding on new platforms.
-    </p>
+  <div class="section">
+    <h2>3. Supply Information</h2>
+    <ul>
+      <li><strong>Total Supply:</strong> 100,000,000,000,000 (100 Trillion)</li>
+      <li><strong>Burned Supply:</strong> 99,000,000,000,000 (99 Trillion)</li>
+      <li><strong>Final Circulating Supply:</strong> 1,000,000,000,000 (1 Trillion)</li>
+      <li><strong>Burn TX Hash:</strong> <a href="https://bscscan.com/tx/0x46c173b743001535960241d9563dfe37733d7955d1388771d5f00c02c3b3a9f3" target="_blank">View on BscScan</a></li>
+    </ul>
   </div>
-</section>
 
-    <div class="section">
-      <h2>Final Remarks</h2>
-      <p>XBTCR is more than just a token - it represents a movement toward accessible, decentralized value powered by transparency and real community-driven progress. With a solid foundation, responsible tax structure, open liquidity, and long-term vision, XBTCR is positioned to become a standout digital asset in the evolving blockchain space.
-    </p>
-    <p>
-      We invite all crypto enthusiasts, builders, and believers to join us on this journey - to hold, contribute, and shape a decentralized financial future together.
-    </p>
-    <p>
-      Thank you for your interest in XBTCR. Let’s build the future of decentralized finance - transparently, together.
-    </p>
+  <div class="section">
+    <h2>4. Tax Structure</h2>
+    <ul>
+      <li><strong>Marketing:</strong> 2.00%</li>
+      <li><strong>Auto-Burn:</strong> 1.50%</li>
+      <li><strong>Total Tax:</strong> 3.50%</li>
+      <li><strong>Slippage:</strong> 2%</li>
+    </ul>
   </div>
-</section>
+
+  <div class="section">
+    <h2>5. Liquidity & Trading</h2>
+    <ul>
+      <li><strong>DEX:</strong> PancakeSwap V2</li>
+      <li><strong>Pair:</strong> XBTCR / WBNB</li>
+      <li><strong>Liquidity Address:</strong> <a href="https://pancakeswap.finance/info/pool/0x364...7803" target="_blank">View Pool</a></li>
+      <li><strong>Ownership:</strong> Renounced</li>
+      <li><strong>Restrictions:</strong> None (No whitelist/blacklist)</li>
+    </ul>
   </div>
+
+  <div class="section">
+    <h2>6. Roadmap</h2>
+    <p>Phase 1: Launch, Token Verification, Website Live<br>
+       Phase 2: PancakeSwap Listing, Community Building<br>
+       Phase 3: CoinGecko + CoinMarketCap Listing<br>
+       Phase 4: Mobile App Launch, XBTCR Mining Feature<br>
+       Phase 5: Centralized Exchange Listings</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Trust Factors</h2>
+    <ul>
+      <li>Verified Contract on BscScan</li>
+      <li>99% Tokens Burned</li>
+      <li>Open-source Whitepaper</li>
+      <li>Visible Supply on Explorers</li>
+      <li>No Team Allocation or Hidden Wallets</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>8. Contact</h2>
+    <p><strong>Twitter:</strong> <a href="https://twitter.com/xbtcrtoken" target="_blank">@xbtcrtoken</a></p>
+    <p><strong>Explorer:</strong> <a href="https://bscscan.com/token/0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">BscScan Link</a></p>
+  </div>
+
 </body>
 </html>
