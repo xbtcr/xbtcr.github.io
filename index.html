@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XBTCR - Crypto Token</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf_viewer.min.css">
   <style>
     /* Base Styles */
     * {
@@ -18,7 +19,6 @@
       line-height: 1.6;
       color: #333;
       position: relative;
-      padding-bottom: 100px;
       min-height: 100vh;
     }
     
@@ -141,6 +141,20 @@
       border: 2px solid white;
     }
     
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .about-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
     /* Tokenomics Grid */
     .tokenomics-grid {
       display: grid;
@@ -155,6 +169,21 @@
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       text-align: center;
+    }
+    
+    /* Whitepaper Section */
+    .whitepaper-container {
+      margin-top: 40px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 600px;
+    }
+    
+    #pdf-viewer {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
     
     /* Roadmap */
@@ -174,6 +203,60 @@
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       text-align: center;
+      position: relative;
+    }
+    
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      width: 20px;
+      height: 2px;
+      background: #ddd;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 40px auto 0;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .form-group textarea {
+      height: 150px;
+    }
+    
+    .submit-btn {
+      background-color: #f7931a;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      background-color: #e07e0c;
     }
     
     /* Social Links */
@@ -230,9 +313,7 @@
       background-color: #222;
       color: white;
       padding: 20px 0;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
+      margin-top: 80px;
     }
     
     .footer-container {
@@ -250,6 +331,38 @@
       text-decoration: none;
     }
     
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow: auto;
+      position: relative;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
       .header-container {
@@ -265,6 +378,10 @@
         margin-right: 10px;
       }
       
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
       .cta-buttons {
         flex-direction: column;
         gap: 10px;
@@ -272,6 +389,10 @@
       
       .roadmap-steps {
         flex-direction: column;
+      }
+      
+      .step:not(:last-child)::after {
+        display: none;
       }
       
       .footer-container {
@@ -301,7 +422,7 @@
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#tokenomics">Tokenomics</a></li>
-          <li><a href="whitepaper.pdf" target="_blank">Whitepaper</a></li>
+          <li><a href="#whitepaper">Whitepaper</a></li>
           <li><a href="#roadmap">Roadmap</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="buy-btn">Buy XBTCR</a></li>
@@ -317,7 +438,7 @@
       <p>The future of decentralized finance is here</p>
       <div class="cta-buttons">
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="cta-btn">Buy Now</a>
-        <a href="whitepaper.pdf" target="_blank" class="secondary-btn">Whitepaper</a>
+        <a href="#whitepaper" class="secondary-btn">Whitepaper</a>
       </div>
     </div>
   </section>
@@ -326,18 +447,21 @@
   <section id="about" class="section">
     <div class="section-container">
       <h2>About XBTCR</h2>
-      <p>XBTCR is a decentralized BEP-20 token designed to bring real utility to the DeFi ecosystem. Built on Binance Smart Chain, XBTCR focuses on simplicity, transparency, and accessibility.</p>
-      <p>Our mission is to create a fair and open financial tool that empowers the community. With a fixed total supply and a transparent burn mechanism, XBTCR ensures long-term value and reduced inflation.</p>
-      <p>The project is community-driven with no central control, no presale, and no private investors. All tokens are launched fairly on PancakeSwap, and 99% of the total supply is permanently burned to build trust.</p>
-      
-      <h3 style="margin-top: 30px;">Key Highlights</h3>
-      <ul style="margin-left: 20px; margin-top: 15px;">
-        <li>🔥 99% supply burned — only 1T tokens circulating</li>
-        <li>💹 Low slippage (2%) — smooth trading experience</li>
-        <li>🔐 No whitelist / blacklist — fully open</li>
-        <li>💰 Tax structure: 3.5% total (Marketing + Auto-Burn)</li>
-        <li>🌐 Live on PancakeSwap V2 (XBTCR/WBNB)</li>
-      </ul>
+      <div class="about-content">
+        <div>
+          <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain, designed to bring innovation and transparency to the DeFi space. Our mission is to create a fair and accessible financial ecosystem for everyone.</p>
+          <p>With a total supply of 100 billion tokens, XBTCR implements a unique burn mechanism that ensures long-term value appreciation for holders. The project is completely community-driven with no central authority.</p>
+          <p>Key features include:</p>
+          <ul style="margin-left: 20px; margin-top: 15px;">
+            <li>Secure and transparent transactions</li>
+            <li>Low transaction fees (3.5% total tax)</li>
+            <li>Automatic liquidity generation</li>
+            <li>Regular token burns to reduce supply</li>
+            <li>Community governance model</li>
+          </ul>
+        </div>
+        <img src="assets/about-image.jpg" alt="About XBTCR" class="about-image">
+      </div>
     </div>
   </section>
 
@@ -345,6 +469,8 @@
   <section id="tokenomics" class="section dark-section">
     <div class="section-container">
       <h2>Tokenomics</h2>
+      <p style="text-align: center;">XBTCR's economic model is designed for sustainability and growth</p>
+      
       <div class="tokenomics-grid">
         <div class="tokenomics-item">
           <h3>100 Billion</h3>
@@ -358,35 +484,114 @@
           <h3>1.5%</h3>
           <p>Auto-Burn</p>
         </div>
+        <div class="tokenomics-item">
+          <h3>3.5%</h3>
+          <p>Total Tax</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 40px; background: white; padding: 20px; border-radius: 8px;">
+        <h3 style="text-align: center;">Token Distribution</h3>
+        <p style="text-align: center;">99% of tokens were burned at launch, leaving only 1 billion in circulation</p>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+          <div style="width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(
+            #f7931a 0% 1%,
+            #25D366 1% 100%
+          );"></div>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 30px; margin-top: 20px;">
+          <div><span style="display: inline-block; width: 15px; height: 15px; background: #f7931a; margin-right: 5px;"></span> Circulating (1%)</div>
+          <div><span style="display: inline-block; width: 15px; height: 15px; background: #25D366; margin-right: 5px;"></span> Burned (99%)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Whitepaper Section -->
+  <section id="whitepaper" class="section">
+    <div class="section-container">
+      <h2>Whitepaper</h2>
+      <p style="text-align: center;">Read our detailed technical documentation and project roadmap</p>
+      
+      <div class="whitepaper-container">
+        <iframe id="pdf-viewer" src="whitepaper.pdf"></iframe>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="whitepaper.pdf" download class="cta-btn" style="display: inline-block;">
+          <i class="fas fa-download"></i> Download Whitepaper
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Roadmap Section -->
-  <section id="roadmap" class="section">
+  <section id="roadmap" class="section dark-section">
     <div class="section-container">
       <h2>Roadmap</h2>
+      <p style="text-align: center;">Our strategic plan for development and growth</p>
+      
       <div class="roadmap-steps">
         <div class="step">
           <h3>Q1 2025</h3>
-          <p>Token Launch</p>
+          <p>• Token Launch</p>
+          <p>• PancakeSwap Listing</p>
+          <p>• Initial Marketing Campaign</p>
+          <p>• Community Building</p>
         </div>
         <div class="step">
           <h3>Q2 2025</h3>
-          <p>CEX Listings</p>
+          <p>• First CEX Listing</p>
+          <p>• Website Upgrade</p>
+          <p>• Partnership Announcements</p>
+          <p>• Staking Platform Development</p>
         </div>
         <div class="step">
           <h3>Q3 2025</h3>
-          <p>Ecosystem Expansion</p>
+          <p>• Ecosystem Expansion</p>
+          <p>• Mobile App Beta</p>
+          <p>• Second CEX Listing</p>
+          <p>• Major Marketing Push</p>
+        </div>
+        <div class="step">
+          <h3>Q4 2025</h3>
+          <p>• Full Ecosystem Launch</p>
+          <p>• Governance Implementation</p>
+          <p>• Additional Utility Features</p>
+          <p>• Global Expansion</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section dark-section">
+  <section id="contact" class="section">
     <div class="section-container">
       <h2>Contact Us</h2>
+      <p style="text-align: center;">Get in touch with our team for any inquiries</p>
+      
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+      
       <div class="social-links">
         <a href="https://t.me/xbtcr_bsc" class="social-icon" style="background: #0088cc;" target="_blank">
           <i class="fab fa-telegram"></i>
@@ -399,6 +604,9 @@
         </a>
         <a href="#" class="social-icon" style="background: #E1306C;" target="_blank">
           <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-icon" style="background: #1877F2;" target="_blank">
+          <i class="fab fa-facebook"></i>
         </a>
       </div>
     </div>
@@ -420,6 +628,15 @@
     </div>
   </footer>
 
+  <!-- Whitepaper Modal -->
+  <div id="whitepaperModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <iframe id="modalPdfViewer" src="" style="width: 100%; height: 80vh;"></iframe>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
   <script>
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -459,6 +676,49 @@
         }
       });
     });
+    
+    // Whitepaper modal functionality
+    const whitepaperModal = document.getElementById('whitepaperModal');
+    const modalPdfViewer = document.getElementById('modalPdfViewer');
+    const closeModal = document.querySelector('.close-modal');
+    
+    document.querySelectorAll('[href="#whitepaper"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        modalPdfViewer.src = 'whitepaper.pdf';
+        whitepaperModal.style.display = 'flex';
+      });
+    });
+    
+    closeModal.addEventListener('click', function() {
+      whitepaperModal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(e) {
+      if (e.target === whitepaperModal) {
+        whitepaperModal.style.display = 'none';
+      }
+    });
+    
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will contact you soon.');
+      this.reset();
+    });
+    
+    // Initialize PDF.js
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+    
+    const pdfViewer = document.getElementById('pdf-viewer');
+    if (pdfViewer) {
+      pdfViewer.onload = function() {
+        console.log('PDF loaded successfully');
+      };
+      pdfViewer.onerror = function() {
+        console.error('Error loading PDF');
+      };
+    }
   </script>
 </body>
 </html>
