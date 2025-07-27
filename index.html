@@ -116,8 +116,10 @@
   <section id="contact" class="section dark-section">
     <div class="section-container">
       <h2>Contact Us</h2>
-      <div class="social-links">
-        a href="https://t.me/xbtcr_bsc" class="social-icon" style="background: #0088cc;">
+      <!-- Footer with Social Links -->
+    <footer>
+        <div class="social-links">
+            <a href="https://t.me/xbtcr_bsc" class="social-icon" style="background: #0088cc;">
                 <i class="fab fa-telegram"></i>
             </a>
             <a href="#" class="social-icon" style="background: #1DA1F2;">
@@ -129,19 +131,36 @@
             <a href="#" class="social-icon" style="background: #E1306C;">
                 <i class="fab fa-instagram"></i>
             </a>
-           </div>
-    </section>
+        </div>
+        <p class="copyright">© 2023 XBTCR. All rights reserved.</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container" style="width: 100%; font-size: 0.9rem;">
-      <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
+    <script>
+        // Simple navigation active state
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Button click effects
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = '';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+    </script>
 </body>
 </html>
