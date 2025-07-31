@@ -1,1 +1,46 @@
+<!-- About Section -->
+<section id="about" class="section">
+  <div class="section-container">
+    <h2>About XBTCR</h2>
+    <div class="about-content">
+      <div class="logo-container">
+        <div class="xbtcr-logo">
+          <span class="x">X</span>
+          <span class="btcr">BTCR</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain...</p>
+        <!-- Rest of your content -->
+      </div>
+    </div>
+  </div>
+</section>
 
+<style>
+  .xbtcr-logo {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .xbtcr-logo .x {
+    color: #f7931a; /* Orange color for X */
+  }
+  
+  .xbtcr-logo .btcr {
+    color: #25D366; /* Green color for BTCR */
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .about-text {
+    max-width: 800px;
+  }
+</style>
