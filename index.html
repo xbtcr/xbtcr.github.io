@@ -186,34 +186,102 @@
       border: none;
     }
     
-    /* Roadmap */
+    /* Improved Roadmap */
+    .roadmap-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 40px auto 0;
+    }
+    
+    .roadmap-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #f7931a;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
     .roadmap-steps {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
     
     .step {
-      flex: 1;
-      min-width: 250px;
-      margin: 10px;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
       position: relative;
     }
     
-    .step:not(:last-child)::after {
+    .step-content {
+      width: calc(50% - 40px);
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    .step:nth-child(even) .step-content {
+      margin-left: auto;
+    }
+    
+    .step-content::before {
       content: '';
       position: absolute;
-      top: 50%;
-      right: -20px;
+      top: 30px;
       width: 20px;
-      height: 2px;
-      background: #ddd;
+      height: 20px;
+      border-radius: 50%;
+      background: #f7931a;
+    }
+    
+    .step:nth-child(odd) .step-content::before {
+      right: -50px;
+    }
+    
+    .step:nth-child(even) .step-content::before {
+      left: -50px;
+    }
+    
+    /* Team Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .team-member {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    
+    .team-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 3px solid #f7931a;
+    }
+    
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .team-social a {
+      color: #f7931a;
+      font-size: 20px;
     }
     
     /* Contact Form */
@@ -308,27 +376,67 @@
       transform: scale(1.1);
     }
     
-    /* Footer */
+    /* Improved Footer */
     footer {
-      background-color: #222;
+      background-color: #111;
       color: white;
-      padding: 20px 0;
-      margin-top: 80px;
+      padding: 60px 0 20px;
     }
     
     .footer-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
     
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-logo {
+      height: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-about p {
+      margin-bottom: 20px;
+    }
+    
+    .footer-links h3 {
+      color: #f7931a;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
     .footer-links a {
-      color: white;
-      margin-left: 20px;
+      color: #ddd;
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #f7931a;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+    }
+    
+    .footer-bottom p {
+      margin-bottom: 0;
     }
     
     /* Modal */
@@ -387,25 +495,27 @@
         gap: 10px;
       }
       
-      .roadmap-steps {
+      .roadmap-line {
+        left: 20px;
+      }
+      
+      .step {
         flex-direction: column;
       }
       
-      .step:not(:last-child)::after {
-        display: none;
+      .step-content {
+        width: 100%;
+        margin-bottom: 20px;
       }
       
-      .footer-container {
-        flex-direction: column;
-        text-align: center;
+      .step:nth-child(odd) .step-content::before,
+      .step:nth-child(even) .step-content::before {
+        left: -30px;
+        right: auto;
       }
       
-      .footer-links {
-        margin-top: 10px;
-      }
-      
-      .footer-links a {
-        margin: 0 10px;
+      .footer-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -422,10 +532,11 @@
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#tokenomics">Tokenomics</a></li>
+          <li><a href="#team">Team</a></li>
           <li><a href="#whitepaper">Whitepaper</a></li>
           <li><a href="#roadmap">Roadmap</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li></li><a href="price-impact.html">Calculator</a>
+          <li><a href="price-impact.html" target="_blank">Calculator</a></li>
           <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="buy-btn">Buy XBTCR</a></li>
         </ul>
       </nav>
@@ -453,7 +564,7 @@
           <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain, designed to bring innovation and transparency to the DeFi space. Our mission is to create a fair and accessible financial ecosystem for everyone.</p>
           <p>With a total supply of 100 billion tokens, XBTCR implements a unique burn mechanism that ensures long-term value appreciation for holders. The project is completely community-driven with no central authority.</p>
           <p>Key features include:</p>
-          
+          <ul>
             <li>Secure and transparent transactions</li>
             <li>Low transaction fees (3.5% total tax)</li>
             <li>Automatic liquidity generation</li>
@@ -508,8 +619,66 @@
     </div>
   </section>
 
+  <!-- Team Section -->
+  <section id="team" class="section">
+    <div class="section-container">
+      <h2>Our Team</h2>
+      <p style="text-align: center;">Meet the talented individuals behind XBTCR</p>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="assets/team1.jpg" alt="Team Member" class="team-photo">
+          <h3>John Smith</h3>
+          <p>Founder & CEO</p>
+          <p>Blockchain expert with 10+ years experience in cryptocurrency development</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="assets/team2.jpg" alt="Team Member" class="team-photo">
+          <h3>Sarah Johnson</h3>
+          <p>CTO</p>
+          <p>Smart contract developer and security specialist</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="assets/team3.jpg" alt="Team Member" class="team-photo">
+          <h3>Michael Chen</h3>
+          <p>Marketing Director</p>
+          <p>Digital marketing strategist with crypto community expertise</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="assets/team4.jpg" alt="Team Member" class="team-photo">
+          <h3>Emma Wilson</h3>
+          <p>UI/UX Designer</p>
+          <p>Creating intuitive interfaces for blockchain applications</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Whitepaper Section -->
-  <section id="whitepaper" class="section">
+  <section id="whitepaper" class="section dark-section">
     <div class="section-container">
       <h2>Whitepaper</h2>
       <p style="text-align: center;">Read our detailed technical documentation and project roadmap</p>
@@ -527,46 +696,68 @@
   </section>
 
   <!-- Roadmap Section -->
-  <section id="roadmap" class="section dark-section">
+  <section id="roadmap" class="section">
     <div class="section-container">
       <h2>Roadmap</h2>
       <p style="text-align: center;">Our strategic plan for development and growth</p>
       
-      <div class="roadmap-steps">
-        <div class="step">
-          <h3>Q1 2025</h3>
-          <p>• Token Launch</p>
-          <p>• PancakeSwap Listing</p>
-          <p>• Initial Marketing Campaign</p>
-          <p>• Community Building</p>
-        </div>
-        <div class="step">
-          <h3>Q2 2025</h3>
-          <p>• First CEX Listing</p>
-          <p>• Website Upgrade</p>
-          <p>• Partnership Announcements</p>
-          <p>• Staking Platform Development</p>
-        </div>
-        <div class="step">
-          <h3>Q3 2025</h3>
-          <p>• Ecosystem Expansion</p>
-          <p>• Mobile App Beta</p>
-          <p>• Second CEX Listing</p>
-          <p>• Major Marketing Push</p>
-        </div>
-        <div class="step">
-          <h3>Q4 2025</h3>
-          <p>• Full Ecosystem Launch</p>
-          <p>• Governance Implementation</p>
-          <p>• Additional Utility Features</p>
-          <p>• Global Expansion</p>
+      <div class="roadmap-container">
+        <div class="roadmap-line"></div>
+        <div class="roadmap-steps">
+          <div class="step">
+            <div class="step-content">
+              <h3>Q1 2025</h3>
+              <ul>
+                <li>Token Launch</li>
+                <li>PancakeSwap Listing</li>
+                <li>Initial Marketing Campaign</li>
+                <li>Community Building</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-content">
+              <h3>Q2 2025</h3>
+              <ul>
+                <li>First CEX Listing</li>
+                <li>Website Upgrade</li>
+                <li>Partnership Announcements</li>
+                <li>Staking Platform Development</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-content">
+              <h3>Q3 2025</h3>
+              <ul>
+                <li>Ecosystem Expansion</li>
+                <li>Mobile App Beta</li>
+                <li>Second CEX Listing</li>
+                <li>Major Marketing Push</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-content">
+              <h3>Q4 2025</h3>
+              <ul>
+                <li>Full Ecosystem Launch</li>
+                <li>Governance Implementation</li>
+                <li>Additional Utility Features</li>
+                <li>Global Expansion</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section">
+  <section id="contact" class="section dark-section">
     <div class="section-container">
       <h2>Contact Us</h2>
       <p style="text-align: center;">Get in touch with our team for any inquiries</p>
@@ -592,33 +783,72 @@
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
       </div>
+    </div>
+  </section>
 
   <!-- WhatsApp Button -->
   <a href="https://wa.me/+923165020033" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Footer -->
+  <!-- Improved Footer -->
   <footer>
     <div class="footer-container">
-      <div class="social-links">
-        <a href="https://t.me/xbtcr_bsc" class="social-icon" style="background: #0088cc;" target="_blank">
-          <i class="fab fa-telegram"></i>
-        </a>
-        <a href="#" class="social-icon" style="background: #1DA1F2;" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-icon" style="background: #E1306C;" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="social-icon" style="background: #1877F2;" target="_blank">
-          <i class="fab fa-facebook"></i>
-        </a>
+      <div class="footer-grid">
+        <div class="footer-about">
+          <img src="assets/xbtcr.png" alt="XBTCR Logo" class="footer-logo">
+          <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain, designed to bring innovation and transparency to the DeFi space.</p>
+          <div class="social-links">
+            <a href="https://t.me/xbtcr_bsc" class="social-icon" style="background: #0088cc;" target="_blank">
+              <i class="fab fa-telegram"></i>
+            </a>
+            <a href="#" class="social-icon" style="background: #1DA1F2;" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" style="background: #E1306C;" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" style="background: #1877F2;" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#tokenomics">Tokenomics</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#whitepaper">Whitepaper</a></li>
+            <li><a href="price-impact.html" target="_blank">Calculator</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
       </div>
-      <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms of Service</a>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -636,17 +866,22 @@
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-        
-        // Update active class in navigation
-        document.querySelectorAll('.main-nav a').forEach(link => {
-          link.classList.remove('active');
-        });
-        this.classList.add('active');
+        // Only prevent default for same-page links
+        if (this.getAttribute('href').startsWith('#') && 
+            !this.hasAttribute('target') && 
+            this.getAttribute('href') !== '#') {
+          e.preventDefault();
+          
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+          
+          // Update active class in navigation
+          document.querySelectorAll('.main-nav a').forEach(link => {
+            link.classList.remove('active');
+          });
+          this.classList.add('active');
+        }
       });
     });
     
