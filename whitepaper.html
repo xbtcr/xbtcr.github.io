@@ -1,117 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>XBTCR Whitepaper</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #ffffff;
-      color: #000000;
-    }
-    .logo-container {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .logo {
-      max-width: 150px;
-      height: auto;
-    }
-    h1, h2, h3 {
-      color: #222222;
-    }
-    p {
-      line-height: 1.6;
-    }
-    .section {
-      margin-bottom: 40px;
-    }
-    hr {
-      margin: 30px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XBTCR - Whitepaper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            margin-left: 15px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .main-nav a:hover {
+            background-color: #333;
+        }
+        
+        .main-nav a.active {
+            background-color: #333;
+        }
+        
+        .buy-btn {
+            background-color: #f7931a;
+            color: white !important;
+            padding: 8px 20px !important;
+        }
+        
+        .buy-btn:hover {
+            background-color: #e07e0c;
+        }
+        
+        /* Whitepaper Hero Section */
+        .whitepaper-hero {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .whitepaper-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .whitepaper-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Whitepaper Content */
+        .whitepaper-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .whitepaper-content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+        }
+        
+        .whitepaper-section {
+            margin-bottom: 40px;
+        }
+        
+        .whitepaper-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .whitepaper-section h2 {
+            color: #f7931a;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #f7931a;
+            padding-bottom: 10px;
+        }
+        
+        .whitepaper-section h3 {
+            margin: 25px 0 15px;
+            color: #333;
+            font-size: 1.4rem;
+        }
+        
+        .whitepaper-section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .whitepaper-section ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .whitepaper-section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: #f7931a;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #e07e0c;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #f7931a;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #f7931a;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #f7931a;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .whitepaper-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .whitepaper-hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .whitepaper-content {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="assets/xbtcr-logo.png" alt="XBTCR Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tokenomics.html">Tokenomics</a></li>
+                    <li><a href="whitepaper.html" class="active">Whitepaper</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="privacy.html">Privacy & Policy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="buy-btn">Buy XBTCR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <div class="logo-container">
-    <img src="xbtcr.png" alt="XBTCR Logo" class="logo" onerror="this.src='https://via.placeholder.com/150?text=XBTCR'">
-  </div>
+    <section class="whitepaper-hero">
+        <div class="hero-content">
+            <h1>XBTCR Whitepaper</h1>
+            <p>The complete technical documentation of the XBTCR ecosystem and token</p>
+        </div>
+    </section>
 
-  <h1 style="text-align:center;">XBTCR Token Whitepaper</h1>
-  <hr>
+    <section class="whitepaper-container">
+        <div class="whitepaper-content">
+            <div class="whitepaper-section">
+                <h2>Abstract</h2>
+                <p>XBTCR is a revolutionary decentralized token built on the Binance Smart Chain (BSC) that aims to bridge the gap between traditional finance and decentralized finance (DeFi). Our mission is to create a sustainable ecosystem that rewards holders while providing real utility in the cryptocurrency space.</p>
+                <p>This whitepaper outlines the technical specifications, economic model, and roadmap for the XBTCR project. It serves as the definitive guide to understanding the vision, technology, and implementation of the XBTCR ecosystem.</p>
+            </div>
+            
+            <div class="whitepaper-section">
+                <h2>Technical Specifications</h2>
+                <h3>Blockchain Network</h3>
+                <p>XBTCR is implemented as a BEP-20 token on the Binance Smart Chain, chosen for its low transaction fees, high throughput, and compatibility with the Ethereum Virtual Machine (EVM).</p>
+                
+                <h3>Token Details</h3>
+                <ul>
+                    <li><strong>Token Name:</strong> XBTCR</li>
+                    <li><strong>Token Symbol:</strong> XBTCR</li>
+                    <li><strong>Decimals:</strong> 18</li>
+                    <li><strong>Total Supply:</strong> 100 Trillion</li>
+                    <li><strong>Circulating Supply:</strong> 1 Trillion</li>
+                    <li><strong>Burned Tokens:</strong> 99 Trillion</li>
+                    <li><strong>Contract Address:</strong> 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</li>
+                </ul>
+                
+                <h3>Smart Contract Features</h3>
+                <p>The XBTCR smart contract includes the following key features:</p>
+                <ul>
+                    <li>Auto-burning mechanism (1.5% of each transaction)</li>
+                    <li>Marketing tax (2% of each transaction)</li>
+                    <li>No blacklist or whitelist functions (fully decentralized)</li>
+                    <li>Liquidity pool integration</li>
+                </ul>
+            </div>
+            
+            <div class="whitepaper-section">
+                <h2>Economic Model</h2>
+                <h3>Token Distribution</h3>
+                <p>The XBTCR token distribution is designed to ensure long-term sustainability and growth of the ecosystem:</p>
+                <ul>
+                    <li><strong>Public Sale:</strong> 40% of total supply</li>
+                    <li><strong>Team & Advisors:</strong> 15% (vested over 24 months)</li>
+                    <li><strong>Ecosystem Development:</strong> 25%</li>
+                    <li><strong>Marketing & Liquidity:</strong> 12%</li>
+                    <li><strong>Reserve Fund:</strong> 8%</li>
+                </ul>
+                
+                <h3>Transaction Taxes</h3>
+                <p>Each transaction is subject to the following taxes:</p>
+                <ul>
+                    <li><strong>Marketing Tax:</strong> 2% - Funds marketing and development</li>
+                    <li><strong>Auto-Burn Tax:</strong> 1.5% - Permanently removes tokens from circulation</li>
+                    <li><strong>Total Tax:</strong> 3.5%</li>
+                </ul>
+            </div>
+            
+            <div class="whitepaper-section">
+                <h2>Roadmap</h2>
+                <h3>Phase 1: Foundation (Q1-Q2 2025)</h3>
+                <ul>
+                    <li>Token launch on PancakeSwap</li>
+                    <li>Initial marketing campaigns</li>
+                    <li>Community building</li>
+                </ul>
+                
+                <h3>Phase 2: Growth (Q3-Q4 2025)</h3>
+                <ul>
+                    <li>CEX listings</li>
+                    <li>Staking platform launch</li>
+                    <li>Partnership announcements</li>
+                </ul>
+                
+                <h3>Phase 3: Expansion (2026)</h3>
+                <ul>
+                    <li>Ecosystem product launches</li>
+                    <li>Cross-chain integration</li>
+                    <li>Full decentralization</li>
+                </ul>
+            </div>
+            
+            <div class="whitepaper-section">
+                <h2>Conclusion</h2>
+                <p>XBTCR represents a new paradigm in decentralized finance, combining innovative tokenomics with real utility. Our vision is to create a self-sustaining ecosystem that rewards long-term holders while continuously reducing supply through our burn mechanism.</p>
+                <p>We invite you to join us on this journey as we build the future of finance together.</p>
+                
+                <a href="#" class="download-btn">
+                    <i class="fas fa-download"></i> Download Full Whitepaper (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>1. Introduction</h2>
-    <p>XBTCR is a next-generation BEP-20 token designed for secure, transparent, and community-driven trading. Built on Binance Smart Chain (BSC), XBTCR empowers holders through tokenomics, low taxes, and zero restrictions.</p>
-  </div>
-
-  <div class="section">
-    <h2>2. Token Overview</h2>
-    <ul>
-      <li><strong>Token Name:</strong> XBTCR</li>
-      <li><strong>Network:</strong> Binance Smart Chain (BEP-20)</li>
-      <li><strong>Contract Address:</strong> 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</li>
-      <li><strong>Decimals:</strong> 18</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>3. Supply Information</h2>
-    <ul>
-      <li><strong>Total Supply:</strong> 100,000,000,000,000 (100 Trillion)</li>
-      <li><strong>Burned Supply:</strong> 99,000,000,000,000 (99 Trillion)</li>
-      <li><strong>Final Circulating Supply:</strong> 1,000,000,000,000 (1 Trillion)</li>
-      <li><strong>Burn TX Hash:</strong> <a href="https://bscscan.com/tx/0x46c173b743001535960241d9563dfe37733d7955d1388771d5f00c02c3b3a9f3" target="_blank">View on BscScan</a></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>4. Tax Structure</h2>
-    <ul>
-      <li><strong>Marketing:</strong> 2.00%</li>
-      <li><strong>Auto-Burn:</strong> 1.50%</li>
-      <li><strong>Total Tax:</strong> 3.50%</li>
-      <li><strong>Slippage:</strong> 2%</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>5. Liquidity & Trading</h2>
-    <ul>
-      <li><strong>DEX:</strong> PancakeSwap V2</li>
-      <li><strong>Pair:</strong> XBTCR / WBNB</li>
-      <li><strong>Liquidity Address:</strong> <a href="https://pancakeswap.finance/info/pool/0x364...7803" target="_blank">View Pool</a></li>
-      <li><strong>Ownership:</strong> Renounced</li>
-      <li><strong>Restrictions:</strong> None (No whitelist/blacklist)</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>6. Roadmap</h2>
-    <p>Phase 1: Launch, Token Verification, Website Live<br>
-       Phase 2: PancakeSwap Listing, Community Building<br>
-       Phase 3: CoinGecko + CoinMarketCap Listing<br>
-       Phase 4: Mobile App Launch, XBTCR Mining Feature<br>
-       Phase 5: Centralized Exchange Listings</p>
-  </div>
-
-  <div class="section">
-    <h2>7. Trust Factors</h2>
-    <ul>
-      <li>Verified Contract on BscScan</li>
-      <li>99% Tokens Burned</li>
-      <li>Open-source Whitepaper</li>
-      <li>Visible Supply on Explorers</li>
-      <li>No Team Allocation or Hidden Wallets</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>8. Contact</h2>
-    <p><strong>Twitter:</strong> <a href="https://twitter.com/xbtcrtoken" target="_blank">@xbtcrtoken</a></p>
-    <p><strong>Explorer:</strong> <a href="https://bscscan.com/token/0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank">BscScan Link</a></p>
-  </div>
-
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/xbtcr-logo-white.png" alt="XBTCR Logo" class="footer-logo">
+                    <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain, designed to bring innovation and transparency to the DeFi space.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="tokenomics.html">Tokenomics</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="github.html">GitHub</a></li>
+                        <li><a href="audit.html">Audit Report</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookie.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
