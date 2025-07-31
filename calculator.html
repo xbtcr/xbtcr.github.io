@@ -1,1 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XBTCR Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            margin-left: 15px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .main-nav a:hover {
+            background-color: #333;
+        }
+        
+        .main-nav a.active {
+            background-color: #333;
+        }
+        
+        .buy-btn {
+            background-color: #f7931a;
+            color: white !important;
+            padding: 8px 20px !important;
+        }
+        
+        .buy-btn:hover {
+            background-color: #e07e0c;
+        }
+        
+        /* Calculator Hero Section */
+        .calculator-hero {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .calculator-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .calculator-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Calculator Content */
+        .calculator-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .calculator-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #f7931a;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #f7931a;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.2);
+        }
+        
+        .input-group {
+            position: relative;
+        }
+        
+        .input-group-append {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #f7931a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #e07e0c;
+            transform: translateY(-2px);
+        }
+        
+        .result-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #f7931a;
+        }
+        
+        .result-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f7931a;
+        }
+        
+        .calculator-info {
+            margin-top: 40px;
+        }
+        
+        .info-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .info-content {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #f7931a;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #f7931a;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #f7931a;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .calculator-hero p {
+                font-size: 1rem;
+            }
+            
+            .calculator-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="assets/xbtcr-logo.png" alt="XBTCR Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tokenomics.html">Tokenomics</a></li>
+                    <li><a href="whitepaper.html">Whitepaper</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="calculator.html" class="active">Calculator</a></li>
+                    <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="buy-btn">Buy XBTCR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <section class="calculator-hero">
+        <div class="hero-content">
+            <h1>XBTCR Calculator</h1>
+            <p>Calculate your potential returns and token conversions</p>
+        </div>
+    </section>
+
+    <section class="calculator-container">
+        <div class="calculator-wrapper">
+            <div class="calculator-card">
+                <h2 class="calculator-title">Investment Calculator</h2>
+                <form id="investmentCalculator">
+                    <div class="form-group">
+                        <label for="investmentAmount">Investment Amount (USD)</label>
+                        <div class="input-group">
+                            <input type="number" id="investmentAmount" class="form-control" placeholder="1000" required>
+                            <span class="input-group-append">$</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tokenPrice">Current XBTCR Price (USD)</label>
+                        <div class="input-group">
+                            <input type="number" id="tokenPrice" class="form-control" placeholder="0.0001" step="0.000001" required>
+                            <span class="input-group-append">$</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="futurePrice">Future XBTCR Price (USD)</label>
+                        <div class="input-group">
+                            <input type="number" id="futurePrice" class="form-control" placeholder="0.001" step="0.000001" required>
+                            <span class="input-group-append">$</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Calculate Potential Returns</button>
+                    
+                    <div class="result-container" id="investmentResult" style="display: none;">
+                        <h3 class="result-title">Potential Returns</h3>
+                        <div class="result-value" id="returnsValue"></div>
+                        <p>You would receive approximately <span id="tokenAmount"></span> XBTCR tokens</p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="calculator-card">
+                <h2 class="calculator-title">Token Converter</h2>
+                <form id="tokenConverter">
+                    <div class="form-group">
+                        <label for="convertAmount">Amount to Convert</label>
+                        <div class="input-group">
+                            <input type="number" id="convertAmount" class="form-control" placeholder="1000" required>
+                            <select id="convertFrom" class="form-control" style="width: auto; margin-left: 10px;">
+                                <option value="usd">USD</option>
+                                <option value="xbtcr">XBTCR</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="conversionRate">Conversion Rate</label>
+                        <div class="input-group">
+                            <input type="number" id="conversionRate" class="form-control" placeholder="0.0001" step="0.000001" required>
+                            <span class="input-group-append">USD per XBTCR</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Convert Now</button>
+                    
+                    <div class="result-container" id="conversionResult" style="display: none;">
+                        <h3 class="result-title">Conversion Result</h3>
+                        <div class="result-value" id="convertedValue"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="calculator-info">
+            <h3 class="info-title">How to Use the XBTCR Calculator</h3>
+            <div class="info-content">
+                <p><strong>Investment Calculator:</strong> Enter the amount you plan to invest, the current price of XBTCR, and your predicted future price to estimate potential returns.</p>
+                <p><strong>Token Converter:</strong> Convert between USD and XBTCR tokens using current market rates.</p>
+                <p>Note: These calculations are estimates only and don't account for transaction fees or market fluctuations. Always do your own research before investing.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/xbtcr-logo-white.png" alt="XBTCR Logo" class="footer-logo">
+                    <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain, designed to bring innovation and transparency to the DeFi space.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="tokenomics.html">Tokenomics</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="github.html">GitHub</a></li>
+                        <li><a href="audit.html">Audit Report</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookie.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Investment Calculator
+        document.getElementById('investmentCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const amount = parseFloat(document.getElementById('investmentAmount').value);
+            const currentPrice = parseFloat(document.getElementById('tokenPrice').value);
+            const futurePrice = parseFloat(document.getElementById('futurePrice').value);
+            
+            if (isNaN(amount) {
+                alert('Please enter a valid investment amount');
+                return;
+            }
+            
+            if (currentPrice <= 0 || futurePrice <= 0) {
+                alert('Token prices must be greater than 0');
+                return;
+            }
+            
+            const tokens = amount / currentPrice;
+            const futureValue = tokens * futurePrice;
+            const profit = futureValue - amount;
+            const roi = (profit / amount) * 100;
+            
+            document.getElementById('returnsValue').innerHTML = 
+                `$${futureValue.toFixed(2)} (${roi.toFixed(2)}% ROI)`;
+            document.getElementById('tokenAmount').innerHTML = tokens.toLocaleString(undefined, {
+                maximumFractionDigits: 0
+            });
+            
+            document.getElementById('investmentResult').style.display = 'block';
+        });
+        
+        // Token Converter
+        document.getElementById('tokenConverter').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const amount = parseFloat(document.getElementById('convertAmount').value);
+            const rate = parseFloat(document.getElementById('conversionRate').value);
+            const convertFrom = document.getElementById('convertFrom').value;
+            
+            if (isNaN(amount) {
+                alert('Please enter a valid amount');
+                return;
+            }
+            
+            if (rate <= 0) {
+                alert('Conversion rate must be greater than 0');
+                return;
+            }
+            
+            let result;
+            if (convertFrom === 'usd') {
+                result = amount / rate;
+                document.getElementById('convertedValue').innerHTML = 
+                    `${result.toLocaleString(undefined, { maximumFractionDigits: 6 })} XBTCR`;
+            } else {
+                result = amount * rate;
+                document.getElementById('convertedValue').innerHTML = 
+                    `$${result.toLocaleString(undefined, { maximumFractionDigits: 2 })}`;
+            }
+            
+            document.getElementById('conversionResult').style.display = 'block';
+        });
+        
+        // Update current price automatically (example)
+        // In a real implementation, you would fetch this from an API
+        function updateCurrentPrice() {
+            // This is just an example - replace with actual API call
+            const examplePrice = 0.000125;
+            document.getElementById('tokenPrice').value = examplePrice;
+            document.getElementById('conversionRate').value = examplePrice;
+        }
+        
+        // Call on page load
+        updateCurrentPrice();
+    </script>
+</body>
+</html>
