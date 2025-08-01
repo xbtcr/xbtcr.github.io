@@ -3,12 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - XBTCR</title>
+    <title>XBTCR - Frequently Asked Questions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            margin-left: 15px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .main-nav a:hover {
+            background-color: #333;
+        }
+        
+        .main-nav a.active {
+            background-color: #333;
+        }
+        
+        .buy-btn {
+            background-color: #f7931a;
+            color: white !important;
+            padding: 8px 20px !important;
+        }
+        
+        .buy-btn:hover {
+            background-color: #e07e0c;
+        }
+        
+        /* FAQ Hero Section */
+        .faq-hero {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .faq-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .faq-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* FAQ Content */
+        .faq-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .faq-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .faq-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .faq-intro p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        
+        .faq-category h3 {
+            font-size: 1.5rem;
+            color: #f7931a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .faq-answer a {
+            color: #f7931a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-prompt {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 50px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .contact-prompt h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .contact-prompt p {
+            color: #666;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: #f7931a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: #e07e0c;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #f7931a;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #f7931a;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #f7931a;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .faq-hero p {
+                font-size: 1rem;
+            }
+            
+            .faq-question {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+            
+            .contact-prompt {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Same header as other pages -->
     <header>
         <div class="header-container">
             <a href="index.html">
@@ -20,7 +369,7 @@
                     <li><a href="tokenomics.html">Tokenomics</a></li>
                     <li><a href="whitepaper.html">Whitepaper</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="privacy.html">Privacy & Policy</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="buy-btn">Buy XBTCR</a></li>
                 </ul>
@@ -28,25 +377,247 @@
         </div>
     </header>
 
-    <!-- Page Specific Content -->
-    <section class="page-hero">
+    <section class="faq-hero">
         <div class="hero-content">
             <h1>Frequently Asked Questions</h1>
-            <p>Find answers to common questions about XBTCR</p>
+            <p>Find answers to common questions about XBTCR token, its features, and how to get started</p>
         </div>
     </section>
 
-    <section class="page-container">
-        <div class="page-content">
-            <!-- Your FAQ content here -->
-            <h2>Coming Soon</h2>
-            <p>This page is under development. Please check back later.</p>
+    <section class="faq-container">
+        <div class="faq-intro">
+            <h2>Have Questions? We Have Answers</h2>
+            <p>Below you'll find answers to the most common questions about XBTCR. If you don't find what you're looking for, feel free to contact us.</p>
+        </div>
+        
+        <div class="faq-category">
+            <h3>General Questions</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is XBTCR?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>XBTCR is a decentralized cryptocurrency token built on the Binance Smart Chain (BSC) that combines innovative tokenomics with real utility. Our mission is to create a sustainable ecosystem that rewards holders while providing valuable services in the DeFi space.</p>
+                    <p>The token features automatic liquidity generation, static rewards for holders, and a dedicated development fund to ensure continuous improvement of the ecosystem.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I buy XBTCR?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can purchase XBTCR on PancakeSwap, the leading decentralized exchange on Binance Smart Chain. Follow these steps:</p>
+                    <ul>
+                        <li>Set up a compatible wallet like MetaMask or Trust Wallet</li>
+                        <li>Fund your wallet with BNB (Binance Coin)</li>
+                        <li>Go to PancakeSwap and connect your wallet</li>
+                        <li>Swap BNB for XBTCR using our contract address: 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</li>
+                    </ul>
+                    <p>For a detailed guide, check our <a href="blog/how-to-buy-xbtcr">step-by-step tutorial</a>.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is XBTCR safe?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Security is our top priority. XBTCR has implemented multiple safety measures:</p>
+                    <ul>
+                        <li>Smart contract audited by a reputable third-party firm</li>
+                        <li>Liquidity locked for 5 years</li>
+                        <li>Renounced ownership to prevent malicious changes</li>
+                        <li>No mint function to prevent inflation</li>
+                    </ul>
+                    <p>You can view our complete audit report on the <a href="audit.html">Audit page</a>.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-category">
+            <h3>Tokenomics & Rewards</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do the rewards work?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>XBTCR implements a 10% transaction fee that is distributed as follows:</p>
+                    <ul>
+                        <li>5% redistributed to all holders (static rewards)</li>
+                        <li>3% added to liquidity pool automatically</li>
+                        <li>2% sent to development/marketing wallet</li>
+                    </ul>
+                    <p>This means you earn more XBTCR just by holding tokens in your wallet. The more transactions occur in the network, the more rewards you accumulate automatically.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>When will I receive my rewards?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Rewards are distributed in real-time with each transaction across the network. There's no need to claim them - they're automatically added to your wallet balance.</p>
+                    <p>You can track your increasing balance by viewing your wallet on BscScan or in your wallet app. The amount you receive is proportional to your percentage of the total supply.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the total supply of XBTCR?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The total supply of XBTCR is 1 quadrillion (1,000,000,000,000,000) tokens. However, over 50% of this supply was burned at launch, and additional burns occur with each transaction through our deflationary mechanism.</p>
+                    <p>The circulating supply decreases over time, creating scarcity and potential value appreciation for holders.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-category">
+            <h3>Technical Questions</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Which wallets support XBTCR?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>XBTCR can be stored in any wallet that supports Binance Smart Chain tokens, including:</p>
+                    <ul>
+                        <li>MetaMask</li>
+                        <li>Trust Wallet</li>
+                        <li>SafePal</li>
+                        <li>Math Wallet</li>
+                        <li>TokenPocket</li>
+                    </ul>
+                    <p>Remember to add XBTCR as a custom token using our contract address: 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Why are my tokens not showing in my wallet?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>If your XBTCR tokens aren't visible, you likely need to add the token manually to your wallet:</p>
+                    <ol>
+                        <li>Get the XBTCR contract address: 0x4274c09719F4eb538682F74DB27f7DB6DE330cd9</li>
+                        <li>In your wallet, find the option to "Add Custom Token"</li>
+                        <li>Select Binance Smart Chain network</li>
+                        <li>Enter the contract address (token symbol and decimals should auto-populate)</li>
+                        <li>Save and your balance should appear</li>
+                    </ol>
+                    <p>If you still have issues, check the transaction on <a href="https://bscscan.com/" target="_blank">BscScan</a> to confirm it was successful.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What's the difference between XBTCR and other tokens?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>XBTCR stands out through several key features:</p>
+                    <ul>
+                        <li><strong>Sustainable rewards:</strong> Our tokenomics ensure long-term viability rather than short-term pumps</li>
+                        <li><strong>Automatic LP:</strong> Every transaction contributes to liquidity, reducing volatility</li>
+                        <li><strong>Real utility:</strong> We're building actual products and services around the token</li>
+                        <li><strong>Transparent team:</strong> Doxxed developers with proven track records</li>
+                        <li><strong>Community focus:</strong> Governance features give holders voting rights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-prompt">
+            <h2>Still Have Questions?</h2>
+            <p>If you didn't find the answer you were looking for, our support team is ready to help you.</p>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </section>
 
-    <!-- Same footer as other pages -->
     <footer>
-        <!-- Paste your footer code here -->
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/xbtcr-logo-white.png" alt="XBTCR Logo" class="footer-logo">
+                    <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain, designed to bring innovation and transparency to the DeFi space.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="tokenomics.html">Tokenomics</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="github.html">GitHub</a></li>
+                        <li><a href="audit.html">Audit Report</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookie.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // In a real implementation, you might want to:
+        // 1. Persist which FAQ items are open
+        // 2. Add smooth scrolling to specific questions
+        // 3. Implement search functionality for FAQs
+    </script>
 </body>
 </html>
