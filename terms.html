@@ -3,22 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title - XBTCR</title>
-    <!-- Use same CSS as other pages -->
+    <title>XBTCR - Terms of Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            margin-left: 15px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .main-nav a:hover {
+            background-color: #333;
+        }
+        
+        .main-nav a.active {
+            background-color: #333;
+        }
+        
+        .buy-btn {
+            background-color: #f7931a;
+            color: white !important;
+            padding: 8px 20px !important;
+        }
+        
+        .buy-btn:hover {
+            background-color: #e07e0c;
+        }
+        
+        /* Terms Hero Section */
+        .terms-hero {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .terms-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .terms-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Terms Content */
+        .terms-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .terms-content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .terms-intro {
+            margin-bottom: 30px;
+        }
+        
+        .terms-intro p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .terms-section {
+            margin-bottom: 40px;
+        }
+        
+        .terms-section h2 {
+            font-size: 1.5rem;
+            color: #f7931a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .terms-section h3 {
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+            color: #333;
+        }
+        
+        .terms-section p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .terms-section ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            color: #666;
+        }
+        
+        .terms-section li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: #f9f9f9;
+            border-left: 4px solid #f7931a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #333;
+            font-style: italic;
+        }
+        
+        .acceptance-section {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .acceptance-section p {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #f7931a;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #f7931a;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #f7931a;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .terms-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .terms-hero p {
+                font-size: 1rem;
+            }
+            
+            .terms-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Paste your header -->
-    
-    <section class="page-hero">
-        <h1>Coming Soon</h1>
-        <p>This page is under development</p>
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="assets/xbtcr-logo.png" alt="XBTCR Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tokenomics.html">Tokenomics</a></li>
+                    <li><a href="whitepaper.html">Whitepaper</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x4274c09719F4eb538682F74DB27f7DB6DE330cd9" target="_blank" class="buy-btn">Buy XBTCR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="terms-hero">
+        <div class="hero-content">
+            <h1>Terms of Service</h1>
+            <p>Last Updated: January 15, 2025</p>
+        </div>
     </section>
 
-    <div class="page-container">
-        <p>We're working hard to bring you this content. Please check back later.</p>
-        <a href="index.html" class="btn">Return Home</a>
-    </div>
+    <section class="terms-container">
+        <div class="terms-content">
+            <div class="terms-intro">
+                <p>Welcome to XBTCR! These Terms of Service ("Terms") govern your access to and use of the XBTCR website, services, and any related applications (collectively, the "Service").</p>
+                
+                <div class="highlight-box">
+                    <p>By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service.</p>
+                </div>
+            </div>
+            
+            <div class="terms-section">
+                <h2>1. Definitions</h2>
+                <p>In these Terms:</p>
+                <ul>
+                    <li><strong>"XBTCR"</strong> refers to the XBTCR token and its associated ecosystem.</li>
+                    <li><strong>"Service"</strong> means the website, smart contracts, and any related services provided by XBTCR.</li>
+                    <li><strong>"User"</strong>, "you", and "your" refer to the individual or entity accessing or using the Service.</li>
+                    <li><strong>"Smart Contract"</strong> refers to the self-executing contract with the terms of the agreement directly written into code on the blockchain.</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>2. Eligibility</h2>
+                <h3>2.1 General Requirements</h3>
+                <p>To use our Service, you must:</p>
+                <ul>
+                    <li>Be at least 18 years old or the age of majority in your jurisdiction</li>
+                    <li>Have the legal capacity to enter into these Terms</li>
+                    <li>Not be a resident of any restricted jurisdictions where cryptocurrency services are prohibited</li>
+                </ul>
+                
+                <h3>2.2 Restricted Jurisdictions</h3>
+                <p>You are prohibited from using the Service if you are located in, or a citizen or resident of any state, country, territory or other jurisdiction where your use of the Service would be illegal or otherwise violate any applicable laws.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>3. Service Description</h2>
+                <p>XBTCR provides:</p>
+                <ul>
+                    <li>A decentralized cryptocurrency token on Binance Smart Chain</li>
+                    <li>Information about the XBTCR project and ecosystem</li>
+                    <li>Access to token-related services including staking and governance</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p>The Service does not constitute an offer or solicitation to buy or sell any financial instrument, nor does it constitute investment advice or recommendation.</p>
+                </div>
+            </div>
+            
+            <div class="terms-section">
+                <h2>4. User Responsibilities</h2>
+                <h3>4.1 Account Security</h3>
+                <p>You are solely responsible for:</p>
+                <ul>
+                    <li>Maintaining the security of your wallet credentials</li>
+                    <li>All transactions initiated through your wallet</li>
+                    <li>Any losses resulting from unauthorized access to your wallet</li>
+                </ul>
+                
+                <h3>4.2 Prohibited Activities</h3>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use the Service for any illegal purpose</li>
+                    <li>Attempt to hack or disrupt the Service</li>
+                    <li>Use the Service to launder money or finance terrorism</li>
+                    <li>Manipulate token prices or engage in market abuse</li>
+                    <li>Reverse engineer or attempt to extract source code from our Service</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>5. Risks Disclosure</h2>
+                <p>Cryptocurrency investments involve substantial risk, including but not limited to:</p>
+                <ul>
+                    <li>Price volatility</li>
+                    <li>Smart contract vulnerabilities</li>
+                    <li>Regulatory changes</li>
+                    <li>Technology failures</li>
+                    <li>Market liquidity risks</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p>You should only invest what you can afford to lose. Past performance is not indicative of future results.</p>
+                </div>
+            </div>
+            
+            <div class="terms-section">
+                <h2>6. Intellectual Property</h2>
+                <p>All content on the Service, including text, graphics, logos, and software, is the property of XBTCR or its licensors and is protected by intellectual property laws.</p>
+                <p>You are granted a limited, non-exclusive, non-transferable license to access and use the Service for personal, non-commercial purposes.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>7. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, XBTCR shall not be liable for:</p>
+                <ul>
+                    <li>Any indirect, incidental, or consequential damages</li>
+                    <li>Loss of profits or data</li>
+                    <li>Investment losses</li>
+                    <li>Any damages resulting from third-party services</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>8. Indemnification</h2>
+                <p>You agree to indemnify and hold harmless XBTCR, its team members, and affiliates from any claims, damages, or expenses arising from:</p>
+                <ul>
+                    <li>Your use of the Service</li>
+                    <li>Your violation of these Terms</li>
+                    <li>Your violation of any laws or third-party rights</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>9. Modifications to Terms</h2>
+                <p>We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting on our website.</p>
+                <p>Your continued use of the Service after changes constitutes acceptance of the modified Terms.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>10. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to its conflict of law provisions.</p>
+            </div>
+            
+            <div class="acceptance-section">
+                <p>By using our Service, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+                <p>If you do not agree, you must immediately discontinue use of the Service.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Paste your footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/xbtcr-logo-white.png" alt="XBTCR Logo" class="footer-logo">
+                    <p>XBTCR is a revolutionary decentralized token built on Binance Smart Chain, designed to bring innovation and transparency to the DeFi space.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="tokenomics.html">Tokenomics</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="github.html">GitHub</a></li>
+                        <li><a href="audit.html">Audit Report</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="active">Terms of Service</a></li>
+                        <li><a href="cookie.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 XBTCR Token. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // In a real implementation, you might want to:
+        // 1. Add a "last updated" date that pulls from a config
+        // 2. Implement a scroll-to-section for quick navigation
+        // 3. Add a print stylesheet for printing the terms
+    </script>
 </body>
 </html>
