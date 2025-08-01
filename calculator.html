@@ -507,7 +507,7 @@
             const currentPrice = parseFloat(document.getElementById('tokenPrice').value);
             const futurePrice = parseFloat(document.getElementById('futurePrice').value);
             
-            if (isNaN(amount) {
+            if (isNaN(amount)) {
                 alert('Please enter a valid investment amount');
                 return;
             }
@@ -539,7 +539,7 @@
             const rate = parseFloat(document.getElementById('conversionRate').value);
             const convertFrom = document.getElementById('convertFrom').value;
             
-            if (isNaN(amount) {
+            if (isNaN(amount)) {
                 alert('Please enter a valid amount');
                 return;
             }
@@ -564,15 +564,12 @@
         });
         
         // Update current price automatically (example)
-        // In a real implementation, you would fetch this from an API
         function updateCurrentPrice() {
-            // This is just an example - replace with actual API call
             const examplePrice = 0.000125;
             document.getElementById('tokenPrice').value = examplePrice;
             document.getElementById('conversionRate').value = examplePrice;
         }
         
-        // Call on page load
         updateCurrentPrice();
     </script>
 </body>
