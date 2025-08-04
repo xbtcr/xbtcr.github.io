@@ -204,6 +204,21 @@
             border: 3px solid #f7931a;
         }
         
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #f7931a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            border: 3px solid #e07e0c;
+        }
+        
         .team-social {
             display: flex;
             justify-content: center;
@@ -215,10 +230,39 @@
             color: #f7931a;
             font-size: 20px;
             transition: color 0.3s;
+            position: relative;
         }
         
         .team-social a:hover {
             color: #e07e0c;
+        }
+        
+        .team-social a:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        
+        .verification-badge {
+            background: rgba(29, 161, 242, 0.1);
+            color: #1DA1F2;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
+        .verification-badge i {
+            margin-right: 5px;
         }
         
         /* Footer */
@@ -397,53 +441,52 @@
         </div>
     </section>
 
-    <!-- Team Section with Zaid Bin Malik's Image -->
+    <!-- Team Section -->
     <section class="team-section">
         <div class="team-container">
-            <h2 class="section-title">Our Team</h2>
+            <h2 class="section-title">Our Core Team</h2>
             <div class="team-grid">
+                <!-- Zahid Malik Profile -->
                 <div class="team-member">
-                    <img src="assets/zaid-malik.jpg" alt="Zaid Bin Malik" class="team-photo">
-                    <h3>Zaid Bin Malik</h3>
-                    <p>Founder & CEO</p>
-                    <p>Blockchain expert with 10+ years experience</p>
+                    <img src="assets/zahid-malik.jpg" alt="Zahid Malik" class="team-photo">
+                    <h3>Zahid Malik</h3>
+                    <p><strong>Founder & CEO</strong></p>
+                    <p>Blockchain Architect | 8+ years experience</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="https://twitter.com/[YOUR_TWITTER]" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/[YOUR_GITHUB]" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://t.me/[YOUR_TELEGRAM]" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    <div class="verification-badge">
+                        <i class="fas fa-check-circle"></i> Verified Founder
                     </div>
                 </div>
-                
+
+                <!-- Bilal Haider Profile -->
                 <div class="team-member">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="team-photo">
-                    <h3>Sarah Johnson</h3>
-                    <p>CTO</p>
-                    <p>Smart contract specialist</p>
+                    <img src="assets/bilal-haider.jpg" alt="Bilal Haider" class="team-photo">
+                    <h3>Bilal Haider</h3>
+                    <p><strong>CTO & Lead Developer</strong></p>
+                    <p>Solidity Expert | DeFi Specialist</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-medium"></i></a>
+                        <a href="https://twitter.com/[BILAL_TWITTER]" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/[BILAL_GITHUB]" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/[BILAL_LINKEDIN]" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="verification-badge">
+                        <i class="fas fa-check-circle"></i> Verified Developer
                     </div>
                 </div>
-                
+
+                <!-- Marketing Profile (Anonymous) -->
                 <div class="team-member">
-                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Chen" class="team-photo">
-                    <h3>Michael Chen</h3>
-                    <p>Marketing Director</p>
-                    <p>Crypto community builder</p>
+                    <div class="profile-avatar">MK</div>
+                    <h3>Marketing Team</h3>
+                    <p><strong>Growth Specialists</strong></p>
+                    <p>Community Building | Partnerships</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="team-member">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Wilson" class="team-photo">
-                    <h3>Emma Wilson</h3>
-                    <p>UI/UX Designer</p>
-                    <p>Creating beautiful interfaces</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="https://t.me/[MARKETING_TELEGRAM]" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://twitter.com/[MARKETING_TWITTER]" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
